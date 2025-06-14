@@ -1,6 +1,6 @@
 {
   "name": "@example/example-webpack",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "private": true,
   "homepage": "https://github.com/hyperse-io/code-inspector/examples/example-rspack",
   "repository": {
