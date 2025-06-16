@@ -1,5 +1,11 @@
 # @hyperse/inspector-component
 
+## 1.1.3
+
+### Patch Changes
+
+- [#28](https://github.com/hyperse-io/code-inspector/pull/28) [`677f427`](https://github.com/hyperse-io/code-inspector/commit/677f427e99cd7eff979e6384289e43b4a989a916) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - 1、fix: fix basePath when using next.config.mjs
+
 ## 1.1.2
 
 ### Patch Changes
