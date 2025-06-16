@@ -428,7 +428,7 @@ function MyComponent() {
 Here's a simplified overview of the `@hyperse/inspector` pipeline:
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Dev Phase
     A[JSX Code] -->|File Save| B[Dev Server]
     B --> C[inspector-babel-plugin or inspector-swc-plugin]

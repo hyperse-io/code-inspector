@@ -22,7 +22,7 @@ const handler = async (request: NextRequest) => {
 
   const nextUrl = request.nextUrl;
 
-  if (!nextUrl.pathname?.startsWith(customLaunchEditorEndpoint)) {
+  if (!customLaunchEditorEndpoint?.endsWith(nextUrl.pathname)) {
     return Response.json(
       {
         error: `[hps-launch-editor]: request url is not valid.`,

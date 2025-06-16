@@ -21,7 +21,7 @@ export default function createNextInspectorPlugin(
 ) {
   return function withNextInspector(nextConfig?: NextConfig) {
     createApiRoute(pluginOptions);
-    rewriteInspectorConfig(pluginOptions);
+    rewriteInspectorConfig(pluginOptions, nextConfig);
     return mergeConfig(nextConfig);
   };
 }

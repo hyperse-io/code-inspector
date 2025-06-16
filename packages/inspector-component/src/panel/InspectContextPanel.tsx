@@ -2,8 +2,7 @@ import { createRef, type RefObject } from 'react';
 import { createRoot } from 'react-dom/client';
 import { InspectContextPanelTagName } from '../constant.js';
 import type { ElementItem } from '../types/type-element-item.js';
-import {
-  InspectContextPanelRoot,
+import InspectContextPanelRoot, {
   type InspectContextPanelRootRef,
   type InspectContextPanelShowParams,
 } from './InspectContextPanelRoot.js';
@@ -30,8 +29,10 @@ export class InspectContextPanel<Item extends ElementItem = ElementItem> {
     const rootElement = document.createElement('div');
     this.panel.appendChild(rootElement);
 
+    const InspectContextPanelRootRef = InspectContextPanelRoot<Item>();
+
     createRoot(rootElement).render(
-      <InspectContextPanelRoot<Item> ref={this.panelInstance} />
+      <InspectContextPanelRootRef ref={this.panelInstance} />
     );
   }
 

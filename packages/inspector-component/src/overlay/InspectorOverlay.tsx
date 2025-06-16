@@ -1,11 +1,11 @@
-import { useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import { Overlay } from '../components/index.js';
 import { InspectorOverlayTagName } from '../constant.js';
 import type { getElementDimensions } from '../helpers/helper-element-dimensions.js';
 import type { getBoundingRect } from '../helpers/helper-rect.js';
 import type { BoxSizing, Rect } from '../types/type-rect.js';
-import { OverlayRect } from './OverlayRect.js';
-import { OverlayTip } from './OverlayTip.js';
+import OverlayRect from './OverlayRect.js';
+import OverlayTip from './OverlayTip.js';
 
 export interface InspectorOverlayRef {
   inspect: <Element extends HTMLElement>(value: {
@@ -19,11 +19,7 @@ export interface InspectorOverlayRef {
   hide: () => Promise<void>;
 }
 
-export interface InspectorOverlayProps {
-  ref: React.RefObject<InspectorOverlayRef | null>;
-}
-
-const InspectorOverlay = ({ ref }: InspectorOverlayProps) => {
+const InspectorOverlay = forwardRef<InspectorOverlayRef>((_, ref) => {
   const [inspectInfo, setInspectInfo] = useState<{
     display: 'block' | 'none';
     title: string;
@@ -80,6 +76,8 @@ const InspectorOverlay = ({ ref }: InspectorOverlayProps) => {
       />
     </Overlay.OverlayRoot>
   );
-};
+});
+
+InspectorOverlay.displayName = 'InspectorOverlay';
 
 export default InspectorOverlay;
