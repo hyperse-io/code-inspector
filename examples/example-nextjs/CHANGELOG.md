@@ -1,5 +1,14 @@
 # @example/example-rspack
 
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies [[`677f427`](https://github.com/hyperse-io/code-inspector/commit/677f427e99cd7eff979e6384289e43b4a989a916)]:
+  - @hyperse/inspector-component@1.1.3
+  - @hyperse/next-inspector@1.1.3
+  - @hyperse/inspector@1.1.8
+
 ## 1.1.8
 
 ### Patch Changes

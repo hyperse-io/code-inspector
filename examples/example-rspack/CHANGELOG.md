@@ -1,5 +1,12 @@
 # @example/example-rspack
 
+## 1.1.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hyperse/inspector@1.1.8
+
 ## 1.1.11
 
 ### Patch Changes
