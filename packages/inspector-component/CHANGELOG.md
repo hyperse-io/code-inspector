@@ -1,5 +1,11 @@
 # @hyperse/inspector-component
 
+## 1.1.4
+
+### Patch Changes
+
+- [#30](https://github.com/hyperse-io/code-inspector/pull/30) [`08cea71`](https://github.com/hyperse-io/code-inspector/commit/08cea7138e45708ba2c41499542749003b336fa7) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - feat: add ShadowRoot component and integrate it into Overlay and InspectContextPanel
+
 ## 1.1.3
 
 ### Patch Changes
