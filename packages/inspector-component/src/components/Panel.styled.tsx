@@ -47,6 +47,8 @@ export const PanelActionButton = styled.button<{
   padding: 6px 8px;
   font-size: 14px;
   border-radius: 4px;
+  background-color: transparent;
+  border: none;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s ease-in-out;
@@ -65,7 +67,6 @@ export const PanelContentLayout = styled.div`
   display: flex;
   flex-direction: column;
   height: 24rem;
-  width: 100%;
   overflow-y: auto;
   background-color: transparent;
   padding: 0.5rem;
@@ -90,7 +91,6 @@ export const PanelListItemActionLayout = styled.div`
 
 export const PanelListItem = styled.div`
   display: flex;
-  width: 100%;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;

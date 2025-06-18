@@ -2,6 +2,7 @@ import { createRef, type RefObject } from 'react';
 import { createRoot } from 'react-dom/client';
 import { InspectContextPanelTagName } from '../constant.js';
 import type { ElementItem } from '../types/type-element-item.js';
+import ShadowRoot from '../components/ShadowRoot.js';
 import InspectContextPanelRoot, {
   type InspectContextPanelRootRef,
   type InspectContextPanelShowParams,
@@ -26,14 +27,13 @@ export class InspectContextPanel<Item extends ElementItem = ElementItem> {
     ) as HTMLDivElement;
     doc.body.appendChild(this.panel);
 
-    const rootElement = document.createElement('div');
-    this.panel.appendChild(rootElement);
-
     const InspectContextPanelRootRef = InspectContextPanelRoot<Item>();
-
-    createRoot(rootElement).render(
-      <InspectContextPanelRootRef ref={this.panelInstance} />
+    createRoot(this.panel).render(
+      <ShadowRoot>
+        <InspectContextPanelRootRef ref={this.panelInstance} />
+      </ShadowRoot>
     );
+
   }
 
   public show(
