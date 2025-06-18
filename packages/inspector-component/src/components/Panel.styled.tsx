@@ -40,9 +40,7 @@ export const PanelActionLayout = styled.div`
   padding: 4px;
 `;
 
-export const PanelActionButton = styled.button<{
-  active: string;
-}>`
+export const PanelActionButton = styled.button`
   cursor: pointer;
   padding: 6px 8px;
   font-size: 14px;
@@ -53,14 +51,6 @@ export const PanelActionButton = styled.button<{
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s ease-in-out;
   }
-  ${({ active }) =>
-    active === 'true'
-      ? css`
-          color: #ee78e6;
-        `
-      : css`
-          color: rgba(255, 255, 255, 0.9);
-        `}
 `;
 
 export const PanelContentLayout = styled.div`

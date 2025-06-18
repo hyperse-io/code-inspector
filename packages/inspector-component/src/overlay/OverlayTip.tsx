@@ -91,7 +91,6 @@ const OverlayTip =
       <Overlay.OverlayTipRoot
         ref={containerRef}
         className={className}
-        showcornerhint={showCornerHint ? 'block' : 'none'}
         style={{
           display: hidden ? 'none' : 'flex',
           translate: position.translate,
@@ -111,7 +110,11 @@ const OverlayTip =
             {width}px × {height}px
           </Overlay.OverlaySize>
         </Overlay.OverlayInfoRow>
-        <Overlay.OverlayCornerHint>{cornerHintText}</Overlay.OverlayCornerHint>
+        <Overlay.OverlayCornerHint
+          style={{
+            display: showCornerHint ? 'block' : 'none',
+          }}
+        >{cornerHintText}</Overlay.OverlayCornerHint>
       </Overlay.OverlayTipRoot>
     );
   }

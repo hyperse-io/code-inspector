@@ -36,8 +36,7 @@ export const OverlayRectContent = styled.div`
   background-color: rgba(111, 168, 220, 0.66);
 `;
 
-export const OverlayTipRoot = styled.div<{ showcornerhint?: 'block' | 'none' }>`
-  --inspector-tip-corner-hint-display: ${(props) => props.showcornerhint};
+export const OverlayTipRoot = styled.div<{ display?: 'block' | 'none' }>`
   --corner-radius: 6px;
   --inspector-tip-color-bg: #333740;
   --color-shadow-1: #aaa1;
@@ -129,7 +128,6 @@ export const OverlayCornerHint = styled.div`
   width: min-content;
   overflow: visible;
   position: relative;
-  display: var(--inspector-tip-corner-hint-display);
   align-items: flex-start;
   justify-content: center;
   padding-top: 1px;

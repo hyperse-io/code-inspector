@@ -92,13 +92,17 @@ export const InspectPanel = <Item extends ElementItem = ElementItem>(
       </Panel.PanelDragHandle>
       <Panel.PanelActionLayout>
         <Panel.PanelActionButton
-          active={`${chainMode === ElementChainMode.Render}`}
+          style={{
+            color: chainMode === ElementChainMode.Render ? '#ee78e6' : 'rgba(255, 255, 255, 0.9)',
+          }}
           onClick={() => setChainMode(ElementChainMode.Render)}
         >
           Render Chain
         </Panel.PanelActionButton>
         <Panel.PanelActionButton
-          active={`${chainMode === ElementChainMode.Source}`}
+          style={{
+            color: chainMode === ElementChainMode.Source ? '#ee78e6' : 'rgba(255, 255, 255, 0.9)',
+          }}
           onClick={() => setChainMode(ElementChainMode.Source)}
         >
           Source Chain
