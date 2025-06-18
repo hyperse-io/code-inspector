@@ -1,5 +1,11 @@
 # @hyperse/inspector-component
 
+## 1.1.5
+
+### Patch Changes
+
+- [#32](https://github.com/hyperse-io/code-inspector/pull/32) [`bd06de1`](https://github.com/hyperse-io/code-inspector/commit/bd06de1871003623e887d5493c2805972a0e30ea) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - refactor: update Overlay and Panel components to simplify props and improve styling logic
+
 ## 1.1.4
 
 ### Patch Changes
