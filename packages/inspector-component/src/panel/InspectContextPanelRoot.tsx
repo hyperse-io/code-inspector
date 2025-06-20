@@ -83,7 +83,10 @@ const InspectContextPanelRoot = <Item extends ElementItem = ElementItem>() => {
       isDragging.current = true;
       dragStartPos.current = { x: e.clientX, y: e.clientY };
       const rect = floatingRef.current!.getBoundingClientRect();
-      panelStartPos.current = { x: rect.left, y: rect.top };
+      panelStartPos.current = {
+        x: rect.left,
+        y: rect.top,
+      };
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -97,8 +100,7 @@ const InspectContextPanelRoot = <Item extends ElementItem = ElementItem>() => {
       const newY = panelStartPos.current.y + deltaY;
 
       Object.assign(floatingRef.current.style, {
-        top: `${newY}px`,
-        left: `${newX}px`,
+        transform: `translate(${newX}px, ${newY}px)`,
       });
     };
 
@@ -133,8 +135,7 @@ const InspectContextPanelRoot = <Item extends ElementItem = ElementItem>() => {
             .toJSON() as Rect,
         }).then((position) => {
           Object.assign(floatingRef.current!.style, {
-            top: `${position.top}px`,
-            left: `${position.left}px`,
+            transform: `translate(${position.left}px, ${position.top}px)`,
           });
         });
 
@@ -154,6 +155,8 @@ const InspectContextPanelRoot = <Item extends ElementItem = ElementItem>() => {
           onClick={stopPropagation}
           data-draggable-block
           style={{
+            top: 0,
+            left: 0,
             display: display,
             cursor: isDragging ? 'grabbing' : 'grab',
             userSelect: 'none',

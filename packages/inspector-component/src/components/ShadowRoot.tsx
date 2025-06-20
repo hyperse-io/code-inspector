@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { type ReactNode, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { StyleSheetManager } from 'styled-components';
 
@@ -9,12 +9,14 @@ const ShadowRoot = ({ children }: { children: ReactNode }) => {
     if (!hostRef.current || hostRef.current.shadowRoot) return;
 
     const shadowRoot = hostRef.current.attachShadow({ mode: 'open' });
-    
+
     const container = document.createElement('div');
     shadowRoot.appendChild(container);
 
     const root = createRoot(container);
-    root.render(<StyleSheetManager target={shadowRoot}>{children}</StyleSheetManager>);
+    root.render(
+      <StyleSheetManager target={shadowRoot}>{children}</StyleSheetManager>
+    );
 
     return () => root.unmount();
   }, []);

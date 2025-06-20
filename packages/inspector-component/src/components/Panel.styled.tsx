@@ -45,6 +45,7 @@ export const PanelActionButton = styled.button`
   padding: 6px 8px;
   font-size: 14px;
   border-radius: 4px;
+  font-weight: 600;
   background-color: transparent;
   border: none;
   &:hover {
@@ -56,10 +57,11 @@ export const PanelActionButton = styled.button`
 export const PanelContentLayout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 24rem;
+  height: 400px;
   overflow-y: auto;
   background-color: transparent;
-  padding: 0.5rem;
+  padding: 10px;
+  font-size: 12px;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -75,7 +77,7 @@ export const PanelListItemActionLayout = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 0.1rem;
+  gap: 2px;
   opacity: 0;
 `;
 
@@ -84,10 +86,11 @@ export const PanelListItem = styled.div`
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
-  border-radius: 0.375rem;
-  padding: 0.5rem;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 6px;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     ${PanelListItemActionLayout} {
@@ -99,7 +102,8 @@ export const PanelListItem = styled.div`
 
 export const PanelListItemTitle = styled.span`
   flex: 1;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -116,15 +120,15 @@ export const PanelListItemDescription = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 0.75rem;
+  font-size: 12px;
 `;
 
 export const PanelListItemActionButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+  padding: 6px;
+  border-radius: 12px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -139,4 +143,5 @@ export const PanelListItemActionButton = styled.div`
 export const PanelListItemRow = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;

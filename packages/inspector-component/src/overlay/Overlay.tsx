@@ -1,9 +1,9 @@
 import { createRef, type RefObject } from 'react';
 import { createRoot } from 'react-dom/client';
+import ShadowRoot from '../components/ShadowRoot.js';
 import { InspectorOverlayTagName } from '../constant.js';
 import { getElementDimensions } from '../helpers/helper-element-dimensions.js';
 import { getBoundingRect } from '../helpers/helper-rect.js';
-import ShadowRoot from '../components/ShadowRoot.js';
 import type { BoxSizing, Rect } from '../types/type-rect.js';
 import InspectorOverlay, {
   type InspectorOverlayRef,
@@ -23,9 +23,10 @@ export class Overlay {
     this.overlay = document.createElement(
       InspectorOverlayTagName
     ) as HTMLDivElement;
-    doc.body.appendChild(this.overlay);
+    doc.documentElement.appendChild(this.overlay);
 
-    createRoot(this.overlay).render(
+    this.root = createRoot(this.overlay);
+    this.root.render(
       <ShadowRoot>
         <InspectorOverlay ref={this.overlayInstance} />
       </ShadowRoot>

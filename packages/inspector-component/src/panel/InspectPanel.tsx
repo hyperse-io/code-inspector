@@ -93,7 +93,10 @@ export const InspectPanel = <Item extends ElementItem = ElementItem>(
       <Panel.PanelActionLayout>
         <Panel.PanelActionButton
           style={{
-            color: chainMode === ElementChainMode.Render ? '#ee78e6' : 'rgba(255, 255, 255, 0.9)',
+            color:
+              chainMode === ElementChainMode.Render
+                ? '#ee78e6'
+                : 'rgba(255, 255, 255, 0.9)',
           }}
           onClick={() => setChainMode(ElementChainMode.Render)}
         >
@@ -101,7 +104,10 @@ export const InspectPanel = <Item extends ElementItem = ElementItem>(
         </Panel.PanelActionButton>
         <Panel.PanelActionButton
           style={{
-            color: chainMode === ElementChainMode.Source ? '#ee78e6' : 'rgba(255, 255, 255, 0.9)',
+            color:
+              chainMode === ElementChainMode.Source
+                ? '#ee78e6'
+                : 'rgba(255, 255, 255, 0.9)',
           }}
           onClick={() => setChainMode(ElementChainMode.Source)}
         >

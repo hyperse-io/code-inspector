@@ -1,10 +1,7 @@
 import { TrustedEditor } from '@hyperse/inspector-common';
 import { Panel } from '../components/index.js';
+import { copyText } from '../helpers/helper-copy-text.js';
 import type { ElementItem } from '../types/type-element-item.js';
-
-const copyText = (text: string) => {
-  return navigator.clipboard.writeText(text);
-};
 
 export interface InspectListItemProps<Item extends ElementItem = ElementItem> {
   item: Item;
