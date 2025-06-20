@@ -1,5 +1,13 @@
 # @hyperse/next-inspector
 
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [[`b87143e`](https://github.com/hyperse-io/code-inspector/commit/b87143e6435a63fa7f9a294cbfdb9f503d069bc4)]:
+  - @hyperse/inspector-component@1.1.6
+  - @hyperse/inspector@1.1.11
+
 ## 1.1.5
 
 ### Patch Changes
