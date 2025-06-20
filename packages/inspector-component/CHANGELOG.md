@@ -1,5 +1,12 @@
 # @hyperse/inspector-component
 
+## 1.1.6
+
+### Patch Changes
+
+- [#34](https://github.com/hyperse-io/code-inspector/pull/34) [`b87143e`](https://github.com/hyperse-io/code-inspector/commit/b87143e6435a63fa7f9a294cbfdb9f503d069bc4) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - Fix: Resolved style override issues within Shadow DOM environments.
+  Fix: Addressed compatibility issues when setting the translate property on documentElement.
+
 ## 1.1.5
 
 ### Patch Changes
