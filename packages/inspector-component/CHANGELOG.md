@@ -1,5 +1,11 @@
 # @hyperse/inspector-component
 
+## 1.1.7
+
+### Patch Changes
+
+- [#36](https://github.com/hyperse-io/code-inspector/pull/36) [`28788a3`](https://github.com/hyperse-io/code-inspector/commit/28788a3403355e7d726e4aa451cf40c0c11c97ff) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - refactor: remove unmount logic from Overlay and InspectContextPanel components to streamline removal process
+
 ## 1.1.6
 
 ### Patch Changes
