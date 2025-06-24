@@ -60,9 +60,6 @@ export class InspectContextPanel<Item extends ElementItem = ElementItem> {
 
   public remove() {
     this.hide();
-    if (this.root) {
-      this.root.unmount();
-    }
     this.panel.remove();
     this.removeClickOutsideListener();
   }

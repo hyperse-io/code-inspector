@@ -68,9 +68,6 @@ export class Overlay {
   }
 
   public remove() {
-    if (this.root) {
-      this.root.unmount();
-    }
     this.overlay.remove();
   }
 }
