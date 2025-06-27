@@ -1,5 +1,12 @@
 # @example/example-rspack
 
+## 1.1.17
+
+### Patch Changes
+
+- Updated dependencies [[`a1347b4`](https://github.com/hyperse-io/code-inspector/commit/a1347b4862c47a2ee3aed53e72f83865424e8bf6)]:
+  - @hyperse/inspector-swc-plugin@1.1.8
+
 ## 1.1.16
 
 ### Patch Changes
