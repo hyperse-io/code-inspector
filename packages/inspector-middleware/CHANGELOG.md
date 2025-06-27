@@ -1,5 +1,14 @@
 # @hyperse/inspector-middleware
 
+## 1.1.7
+
+### Patch Changes
+
+- [#40](https://github.com/hyperse-io/code-inspector/pull/40) [`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - chore: update dependencies across inspector packages
+
+- Updated dependencies [[`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f)]:
+  - @hyperse/inspector-common@1.1.4
+
 ## 1.1.6
 
 ### Patch Changes
