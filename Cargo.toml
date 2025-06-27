@@ -22,10 +22,10 @@ tracing-subscriber = { version = "0.3.19" }
 pathdiff           = { version = "0.2.3" }
 
 # Must be pinned with the same swc versions
-swc                         = { version = "=22.0.0" }
+swc                         = { version = "=28.0.0" }
 swc_common                  = { version = "=9.1.0" }
-swc_config                  = { version = "=2.0.0" }
-swc_core                    = { version = "=23.2.0", default-features = false, features = ["parallel_rayon"] }
+swc_config                  = { version = "3.1.1" }
+swc_core                    = { version = "=29.1.4", default-features = false, features = ["parallel_rayon"] }
 swc_ecma_minifier           = { version = "=17.0.0", default-features = false }
 swc_error_reporters         = { version = "=11.0.0" }
 swc_html                    = { version = "=17.0.0" }
@@ -36,12 +36,12 @@ swc_ecma_ast                = { version = "9.0.0" }
 swc_ecma_utils              = { version = "13.0.0" }
 swc_ecma_visit              = { version = "9.0.0" }
 swc_plugin_macro            = { version = "1.1.0" }
-swc_atoms                   = { version = "5.0.0" }
+swc_atoms                   = { version = "6.0.0" }
 swc_cached                  = { version = "2.0.0" }
-swc_ecma_transforms_react   = { version = "14.0.0" }
-swc_ecma_transforms_testing = { version = "16.0.0" }
+swc_ecma_transforms_react   = { version = "20.0.0" }
+swc_ecma_transforms_testing = { version = "21.0.0" }
 swc_trace_macro             = { version = "2.0.0" }
-testing                     = { version = "10.0.0" }
+testing                     = { version = "14.0.0" }
 convert_case                = { version = "0.8.0" }
 handlebars                  = { version = "6.3.2" }
 

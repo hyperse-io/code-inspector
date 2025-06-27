@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@hyperse/eslint-config-hyperse": "^1.4.4",
-    "@swc/core": "1.11.29",
+    "@swc/core": "1.12.1",
     "@swc/wasm-web": "1.11.29",
     "@types/node": "22.15.29",
     "@vitest/coverage-istanbul": "3.1.4",
