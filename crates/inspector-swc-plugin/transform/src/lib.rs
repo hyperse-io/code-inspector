@@ -36,6 +36,23 @@ impl VisitMut for InspectorPlugin {
         let (line, col, filename) =
             get_file_info(self.project_cwd.clone(), &self.source_map, el.span.lo);
 
+        // Helper function to check if element is React Fragment
+        fn is_react_fragment(name: &JSXElementName) -> bool {
+            match name {
+                // <Fragment>
+                JSXElementName::Ident(ident) => ident.sym == "Fragment",
+                // <React.Fragment>
+                JSXElementName::JSXMemberExpr(member) => {
+                    if let JSXObject::Ident(obj_ident) = &member.obj {
+                        obj_ident.sym == "React" && member.prop.sym == "Fragment"
+                    } else {
+                        false
+                    }
+                }
+                _ => false,
+            }
+        }
+
         // Skip if element has no location info or already has data-hps-source
         if el.span.is_dummy()
             || el.attrs.iter().any(|attr| {
@@ -46,6 +63,7 @@ impl VisitMut for InspectorPlugin {
                 }
                 false
             })
+            || is_react_fragment(&el.name)
         {
             return;
         }

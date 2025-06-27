@@ -9,6 +9,33 @@ const isSourceAttr = (attr: t.Node) =>
   t.isJSXAttribute(attr) && attr.name.name === TRACE_SOURCE;
 
 /**
+ * check JSX element is React.Fragment
+ */
+const isReactFragment = (node: t.JSXOpeningElement): boolean => {
+  const { name } = node;
+
+  // check <Fragment> tag
+  if (t.isJSXIdentifier(name) && name.name === 'Fragment') {
+    return true;
+  }
+
+  // check <React.Fragment> tag
+  if (name.type === 'JSXMemberExpression') {
+    const { object, property } = name;
+    if (
+      object.type === 'JSXIdentifier' &&
+      object.name === 'React' &&
+      property.type === 'JSXIdentifier' &&
+      property.name === 'Fragment'
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+/**
  * This adds {fileName, lineNumber, columnNumber} annotations to JSX tags.
  *
  * NOTE: lineNumber and columnNumber are both 1-based.
@@ -34,7 +61,9 @@ export default declare<PluginState>((_, options) => {
           // the element was generated and doesn't have location information
           !node.loc ||
           // Already has data-hps-source
-          path.node.attributes.some(isSourceAttr)
+          path.node.attributes.some(isSourceAttr) ||
+          // Skip React.Fragment
+          isReactFragment(node)
         ) {
           return;
         }

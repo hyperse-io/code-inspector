@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment } from 'react';
 import { Chip } from '@heroui/react';
 import { CardReview } from './widgets/card-review';
 import reviews from './widgets/reviews';
@@ -11,13 +12,16 @@ export default function Pages() {
         <Chip color="primary" variant="flat">
           Hyperse
         </Chip>
-        <section className="mx-auto w-full max-w-6xl md:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {reviews.map((review, index) => (
-              <CardReview key={index} {...review} />
-            ))}
-          </div>
-        </section>
+        <Fragment>
+          <span className="text-2xl font-bold">Hyperse Code Inspector</span>
+          <section className="mx-auto w-full max-w-6xl md:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {reviews.map((review, index) => (
+                <CardReview key={index} {...review} />
+              ))}
+            </div>
+          </section>
+        </Fragment>
       </div>
     </>
   );

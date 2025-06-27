@@ -24,7 +24,7 @@ pathdiff           = { version = "0.2.3" }
 # Must be pinned with the same swc versions
 swc                         = { version = "=28.0.0" }
 swc_common                  = { version = "=9.1.0" }
-swc_config                  = { version = "3.1.1" }
+swc_config                  = { version = "=3.1.1" }
 swc_core                    = { version = "=29.1.4", default-features = false, features = ["parallel_rayon"] }
 swc_ecma_minifier           = { version = "=17.0.0", default-features = false }
 swc_error_reporters         = { version = "=11.0.0" }

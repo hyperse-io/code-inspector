@@ -7,7 +7,12 @@
     "allowJs": false,
     "noEmit": false,
     "incremental": true,
-    "types": ["vitest/globals", "node"]
+    "types": ["vitest/globals", "node"],
+    "paths": {
+      "@hyperse/inspector-common": [
+        "../../packages/inspector-common/src/index.js"
+      ]
+    }
   },
   "exclude": ["**/node_modules", "**/.*/", "dist", "build", "**/fixtures/**"]
 }

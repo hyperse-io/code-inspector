@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Button, Chip } from '@heroui/react';
+import { Fragment, useState } from 'react';
+import { Chip } from '@heroui/react';
 import { Inspector } from '@hyperse/inspector';
 import Review from './review/App';
 import './index.css';
@@ -20,7 +20,9 @@ export const AppPage = () => {
       <Chip color="primary" variant="flat">
         Hyperse
       </Chip>
-      <span className="text-2xl font-bold">Hyperse Code Inspector</span>
+      <Fragment>
+        <span className="text-2xl font-bold">Hyperse Code Inspector</span>
+      </Fragment>
       <Review />
     </div>
   );

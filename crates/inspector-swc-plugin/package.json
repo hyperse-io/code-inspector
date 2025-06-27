@@ -44,18 +44,18 @@
   },
   "devDependencies": {
     "@hyperse/eslint-config-hyperse": "^1.4.4",
+    "@hyperse/inspector-common": "workspace:*",
     "@swc/core": "1.12.1",
     "@swc/wasm-web": "1.11.29",
     "@types/node": "22.15.29",
-    "@vitest/coverage-istanbul": "3.1.4",
-    "@vitest/ui": "3.1.4",
+    "@vitest/coverage-istanbul": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
     "eslint": "^9.28.0",
-    "next": "^15.3.3",
     "npm-run-all": "4.1.5",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.1.4"
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18.0.0"
