@@ -44,24 +44,24 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@flatjs/cli": "^2.3.1",
-    "@hyperse/eslint-config-hyperse": "^1.4.4",
-    "@types/node": "^22.15.29",
-    "@types/react": "^19.1.8",
+    "@flatjs/cli": "^3.0.1",
+    "@hyperse/eslint-config-hyperse": "^1.4.7",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.11",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/ui": "^3.2.4",
-    "eslint": "^9.28.0",
+    "eslint": "^9.34.0",
     "jsdom": "26.1.0",
     "npm-run-all": "4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3",
-    "vitest": "^3.1.4"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@floating-ui/core": "^1.7.1",
+    "@floating-ui/core": "^1.7.3",
     "@hyperse/inspector-common": "workspace:*",
     "styled-components": "^6.1.19"
   },
@@ -69,8 +69,8 @@
     "styled-components": "^6"
   },
   "peerDependencies": {
-    "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
+    "react": ">=19.1.1",
+    "react-dom": ">=19.1.1"
   },
   "peerDependenciesMeta": {
     "react": {
