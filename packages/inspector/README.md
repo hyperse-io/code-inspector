@@ -415,22 +415,30 @@ function MyComponent() {
 Here's a simplified overview of the `@hyperse/inspector` pipeline:
 
 ```mermaid
-flowchart TB
-    subgraph Dev Phase
-    A[JSX Code] -->|File Save| B[Dev Server]
-    B --> C[inspector-babel-plugin or inspector-swc-plugin]
-    C --> D[data-hps-source = fileName:lineNumber:columnNumber:domtag]
-    end
+sequenceDiagram
+  autonumber
+  participant Dev as Developer Browser
+  participant UI as Inspector Component (client)
+  participant Trans as Babel/SWC Plugin (build)
+  participant MW as Dev Server Middleware
+  participant Launch as Launcher (e.g., launch-editor)
+  participant IDE as IDE
 
-    subgraph Runtime
-    D --> E[Browser Page]
-    E --> F[User Event]
-    F --> G{Call Method}
-    G -->|URL Schema| H[Open IDE]
-    G -->|Fetch API| I[Backend]
-    I --> J[Parse Location]
-    J --> H
-    end
+  rect rgb(240,245,255)
+    note over Trans: Build-time transformation
+    Trans->>Trans: Inject data-hps-* attrs (filename:line:col)
+  end
+
+  Dev->>UI: Press hotkey / click inspect
+  UI->>MW: HTTP request with file, line, column
+  alt Valid request
+    MW->>Launch: Spawn editor with file:line:col
+    Launch->>IDE: Open at location
+    IDE-->>Dev: File focused at target
+  else Invalid/unknown
+    MW-->>UI: Error response
+    UI-->>Dev: Show error state
+  end
 ```
 
 <br/>
