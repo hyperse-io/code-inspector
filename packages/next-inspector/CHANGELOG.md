@@ -1,5 +1,54 @@
 # @hyperse/next-inspector
 
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies [[`14f4eaf`](https://github.com/hyperse-io/code-inspector/commit/14f4eafac735ff180fab431f81b52e72cba2b814), [`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f)]:
+  - @hyperse/inspector-swc-plugin@1.1.9
+  - @hyperse/inspector-component@1.1.8
+  - @hyperse/inspector-common@1.1.4
+  - @hyperse/inspector@1.1.13
+
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [[`a1347b4`](https://github.com/hyperse-io/code-inspector/commit/a1347b4862c47a2ee3aed53e72f83865424e8bf6)]:
+  - @hyperse/inspector-swc-plugin@1.1.8
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [[`28788a3`](https://github.com/hyperse-io/code-inspector/commit/28788a3403355e7d726e4aa451cf40c0c11c97ff)]:
+  - @hyperse/inspector-component@1.1.7
+  - @hyperse/inspector@1.1.12
+
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [[`b87143e`](https://github.com/hyperse-io/code-inspector/commit/b87143e6435a63fa7f9a294cbfdb9f503d069bc4)]:
+  - @hyperse/inspector-component@1.1.6
+  - @hyperse/inspector@1.1.11
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [[`bd06de1`](https://github.com/hyperse-io/code-inspector/commit/bd06de1871003623e887d5493c2805972a0e30ea)]:
+  - @hyperse/inspector-component@1.1.5
+  - @hyperse/inspector@1.1.10
+
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`08cea71`](https://github.com/hyperse-io/code-inspector/commit/08cea7138e45708ba2c41499542749003b336fa7)]:
+  - @hyperse/inspector-component@1.1.4
+  - @hyperse/inspector@1.1.9
+
 ## 1.1.3
 
 ### Patch Changes

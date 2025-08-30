@@ -1,5 +1,39 @@
 # @hyperse/inspector-component
 
+## 1.1.8
+
+### Patch Changes
+
+- [#40](https://github.com/hyperse-io/code-inspector/pull/40) [`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - chore: update dependencies across inspector packages
+
+- Updated dependencies [[`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f)]:
+  - @hyperse/inspector-common@1.1.4
+
+## 1.1.7
+
+### Patch Changes
+
+- [#36](https://github.com/hyperse-io/code-inspector/pull/36) [`28788a3`](https://github.com/hyperse-io/code-inspector/commit/28788a3403355e7d726e4aa451cf40c0c11c97ff) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - refactor: remove unmount logic from Overlay and InspectContextPanel components to streamline removal process
+
+## 1.1.6
+
+### Patch Changes
+
+- [#34](https://github.com/hyperse-io/code-inspector/pull/34) [`b87143e`](https://github.com/hyperse-io/code-inspector/commit/b87143e6435a63fa7f9a294cbfdb9f503d069bc4) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - Fix: Resolved style override issues within Shadow DOM environments.
+  Fix: Addressed compatibility issues when setting the translate property on documentElement.
+
+## 1.1.5
+
+### Patch Changes
+
+- [#32](https://github.com/hyperse-io/code-inspector/pull/32) [`bd06de1`](https://github.com/hyperse-io/code-inspector/commit/bd06de1871003623e887d5493c2805972a0e30ea) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - refactor: update Overlay and Panel components to simplify props and improve styling logic
+
+## 1.1.4
+
+### Patch Changes
+
+- [#30](https://github.com/hyperse-io/code-inspector/pull/30) [`08cea71`](https://github.com/hyperse-io/code-inspector/commit/08cea7138e45708ba2c41499542749003b336fa7) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - feat: add ShadowRoot component and integrate it into Overlay and InspectContextPanel
+
 ## 1.1.3
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @hyperse/inspector-swc-plugin
 
+## 1.1.9
+
+### Patch Changes
+
+- [#40](https://github.com/hyperse-io/code-inspector/pull/40) [`14f4eaf`](https://github.com/hyperse-io/code-inspector/commit/14f4eafac735ff180fab431f81b52e72cba2b814) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - feat: implement support for React fragments in inspector plugins
+
+- [#40](https://github.com/hyperse-io/code-inspector/pull/40) [`68bf503`](https://github.com/hyperse-io/code-inspector/commit/68bf5037db8b6447ff68a6413e0ecb31bbea8d3f) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - chore: update dependencies across inspector packages
+
+## 1.1.8
+
+### Patch Changes
+
+- [#38](https://github.com/hyperse-io/code-inspector/pull/38) [`a1347b4`](https://github.com/hyperse-io/code-inspector/commit/a1347b4862c47a2ee3aed53e72f83865424e8bf6) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - chore: update swc version
+
 ## 1.1.7
 
 ### Patch Changes
