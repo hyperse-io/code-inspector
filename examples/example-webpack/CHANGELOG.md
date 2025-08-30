@@ -1,5 +1,16 @@
 # @example/example-webpack
 
+## 1.1.19
+
+### Patch Changes
+
+- Updated dependencies [[`1bf7053`](https://github.com/hyperse-io/code-inspector/commit/1bf7053c8a6ef853a87ec27fd83d39bbb87ba890)]:
+  - @hyperse/inspector-babel-plugin@1.1.8
+  - @hyperse/inspector-middleware@1.1.8
+  - @hyperse/inspector-swc-plugin@1.1.10
+  - @hyperse/inspector-common@1.1.5
+  - @hyperse/inspector@1.1.14
+
 ## 1.1.18
 
 ### Patch Changes
@@ -58,13 +69,11 @@
 ### Patch Changes
 
 - [#23](https://github.com/hyperse-io/code-inspector/pull/23) [`928c0a6`](https://github.com/hyperse-io/code-inspector/commit/928c0a6a997729c3fd1de0a8411fc4244eff5ccc) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - ### Features
-
   - Added new component library for better UI integration
   - Added Next.js support for seamless integration with Next.js applications
   - Added React 19 compatibility
 
   ### Improvements
-
   - Optimized code structure for better maintainability and performance
 
 - Updated dependencies [[`96bb683`](https://github.com/hyperse-io/code-inspector/commit/96bb683c0566fcda4ccfa6a6efe0e1bb6dd040b1), [`928c0a6`](https://github.com/hyperse-io/code-inspector/commit/928c0a6a997729c3fd1de0a8411fc4244eff5ccc)]:

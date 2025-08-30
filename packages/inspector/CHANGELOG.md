@@ -1,5 +1,27 @@
 # @hyperse/inspector
 
+## 1.1.14
+
+### Patch Changes
+
+- [#42](https://github.com/hyperse-io/code-inspector/pull/42) [`1bf7053`](https://github.com/hyperse-io/code-inspector/commit/1bf7053c8a6ef853a87ec27fd83d39bbb87ba890) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - ### Fixed
+  - `@hyperse/inspector-swc-plugin`: Improve transform stability and fix location shifts caused by JSX prop order; align behavior with the Babel plugin.
+
+  ### Changed
+  - `@hyperse/next-inspector`: Refine API route creation and configuration pass-through; tweak `vitest` settings for more stable tests.
+  - `@hyperse/inspector-babel-plugin`: Align shared constants and type references; minor performance and bundle size improvements.
+  - `@hyperse/inspector-middleware`: Strengthen request parsing and error handling; better edge-case coverage.
+  - `@hyperse/inspector-component`: Improve component prop types and interaction details for better usability.
+  - `@hyperse/inspector-common`: Add missing types and constant exports; unify internal dependency versions.
+  - `@hyperse/inspector`: Sync dependencies and internal exports; fine-tune client initialization.
+
+  ### Documentation
+  - Update package READMEs to reflect latest usage and configuration guidance.
+
+- Updated dependencies [[`1bf7053`](https://github.com/hyperse-io/code-inspector/commit/1bf7053c8a6ef853a87ec27fd83d39bbb87ba890)]:
+  - @hyperse/inspector-component@1.1.9
+  - @hyperse/inspector-common@1.1.5
+
 ## 1.1.13
 
 ### Patch Changes
