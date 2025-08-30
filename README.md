@@ -1,26 +1,13 @@
-<h1 align="center">Hyperse Code Inspector</h1>
-<p align="left">
-  <a aria-label="Build" href="https://github.com/hyperse-io/code-inspector/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/actions/workflow/status/hyperse-io/code-inspector/ci-integrity.yml?branch=main&label=ci&logo=github&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="stable version" href="https://www.npmjs.com/package/@hyperse/inspector">
-    <img alt="stable version" src="https://img.shields.io/npm/v/%40hyperse%2Fconfig-loader?branch=main&label=version&logo=npm&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="Top language" href="https://github.com/hyperse-io/code-inspector/search?l=typescript">
-    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/hyperse-io/code-inspector?style=flat-square&labelColor=000&color=blue">
-  </a>
-  <a aria-label="Licence" href="https://github.com/hyperse-io/code-inspector/blob/main/LICENSE">
-    <img alt="Licence" src="https://img.shields.io/github/license/hyperse-io/code-inspector?style=flat-quare&labelColor=000000" />
-  </a>
-</p>
+# Hyperse Inspector
 
-<p align="center">
-  <strong>@hyperse/inspector</strong> is the tool for seamlessly navigating from your browser to your IDE.
-  <br />
-  With <strong>just a simple click</strong>, you can jump from a React component in the browser to its source code in your local IDE instantly.
-  <br />
-  Think of it as a supercharged version of Chrome's Inspector, tailored for developers.
-</p>
+@hyperse/inspector is the tool for seamlessly navigating from your browser to your IDE.
+With just a simple click, you can jump from a React component in the browser to its source code in your local IDE instantly.
+Think of it as a supercharged version of Chrome's Inspector, tailored for developers.
+
+[![Build](https://img.shields.io/github/actions/workflow/status/hyperse-io/code-inspector/ci-integrity.yml?branch=main&label=ci&logo=github&style=flat-quare&labelColor=000000)](https://github.com/hyperse-io/code-inspector/actions?query=workflow%3ACI)
+[![Version](https://img.shields.io/npm/v/%40hyperse%2Finspector?branch=main&label=version&logo=npm&style=flat-quare&labelColor=000000)](https://www.npmjs.com/package/@hyperse/inspector)
+[![Top Language](https://img.shields.io/github/languages/top/hyperse-io/code-inspector?style=flat-square&labelColor=000&color=blue)](https://github.com/hyperse-io/code-inspector/search?l=typescript)
+[![License](https://img.shields.io/github/license/hyperse-io/code-inspector?style=flat-quare&labelColor=000000)](https://github.com/hyperse-io/code-inspector/blob/main/LICENSE)
 
 ## Table of Contents
 
@@ -58,7 +45,7 @@ Have you ever run into any of these issues 🤔:
 
 That's exactly why **@hyperse/inspector** was created – to make your development workflow smoother and more efficient!
 
-## Key Features
+## Features
 
 - ✨ **Instant Code Navigation:** Click on a UI element in the browser and jump directly to its source code in your IDE.
 - 🔌 **IDE Integration:** Launches your configured IDE/Editor pointing to the exact file and line number.
@@ -428,33 +415,39 @@ function MyComponent() {
 Here's a simplified overview of the `@hyperse/inspector` pipeline:
 
 ```mermaid
-flowchart TB
-    subgraph Dev Phase
-    A[JSX Code] -->|File Save| B[Dev Server]
-    B --> C[inspector-babel-plugin or inspector-swc-plugin]
-    C --> D[data-hps-source = fileName:lineNumber:columnNumber:domtag]
-    end
+sequenceDiagram
+  autonumber
+  participant Dev as Developer Browser
+  participant UI as Inspector Component (client)
+  participant Trans as Babel/SWC Plugin (build)
+  participant MW as Dev Server Middleware
+  participant Launch as Launcher (e.g., launch-editor)
+  participant IDE as IDE
 
-    subgraph Runtime
-    D --> E[Browser Page]
-    E --> F[User Event]
-    F --> G{Call Method}
-    G -->|URL Schema| H[Open IDE]
-    G -->|Fetch API| I[Backend]
-    I --> J[Parse Location]
-    J --> H
-    end
+  rect rgb(240,245,255)
+    note over Trans: Build-time transformation
+    Trans->>Trans: Inject data-hps-* attrs (filename:line:col)
+  end
+
+  Dev->>UI: Press hotkey / click inspect
+  UI->>MW: HTTP request with file, line, column
+  alt Valid request
+    MW->>Launch: Spawn editor with file:line:col
+    Launch->>IDE: Open at location
+    IDE-->>Dev: File focused at target
+  else Invalid/unknown
+    MW-->>UI: Error response
+    UI-->>Dev: Show error state
+  end
 ```
 
 <br/>
 
 1.  **Part 0: JSX Source Information (Build-time)**
-
     - This step is typically handled by your existing React setup (e.g., via Babel's `babel-plugin-transform-react-jsx-source` or SWC's equivalent functionality). It adds `__source` (file path, line number) debug information to JSX elements.
     - The `@hyperse/inspector-babel-plugin` or `@hyperse/inspector-swc-plugin` leverages this or injects similar information, ensuring it's consistently available and formatted for the inspector.
 
 2.  **Part 1: Inspector Component (Client-side)**
-
     - The `<Inspector />` component, when activated (e.g., by hotkey), allows you to select an element on the page.
     - Upon selection, it reads the source location information (file path, line, column) embedded in the selected React component's DOM element or Fiber node.
     - It then sends an API request to your development server, containing this source path information.
@@ -497,8 +490,11 @@ Ensure your chosen IDE is correctly configured in your system's environment vari
 
 This project is licensed under the [MIT LICENSE](./LICENSE).
 
-## Acknowledgements
+## Related Projects
 
-This project draws inspiration from other great tools in the developer ecosystem aimed at improving debugging and code navigation, such as `react-dev-inspector`.
-
----
+- [@hyperse/inspector-middleware](https://github.com/hyperse-io/code-inspector/tree/main/packages/inspector-middleware)
+- [@hyperse/inspector-babel-plugin](https://github.com/hyperse-io/code-inspector/tree/main/packages/inspector-babel-plugin)
+- [@hyperse/inspector-swc-plugin](https://github.com/hyperse-io/code-inspector/tree/main/crates/inspector-swc-plugin)
+- [@hyperse/next-inspector](https://github.com/hyperse-io/code-inspector/tree/main/packages/next-inspector)
+- [@hyperse/inspector-component](https://github.com/hyperse-io/code-inspector/tree/main/packages/inspector-component)
+- [@hyperse/inspector-common](https://github.com/hyperse-io/code-inspector/tree/main/packages/inspector-common)

@@ -33,9 +33,6 @@ impl InspectorPlugin {
 
 impl VisitMut for InspectorPlugin {
     fn visit_mut_jsx_opening_element(&mut self, el: &mut JSXOpeningElement) {
-        let (line, col, filename) =
-            get_file_info(self.project_cwd.clone(), &self.source_map, el.span.lo);
-
         // Helper function to check if element is React Fragment
         fn is_react_fragment(name: &JSXElementName) -> bool {
             match name {
@@ -67,6 +64,9 @@ impl VisitMut for InspectorPlugin {
         {
             return;
         }
+
+        let (line, col, filename) =
+            get_file_info(self.project_cwd.clone(), &self.source_map, el.span.lo);
 
         // Create file name identifier if not exists
         if self.file_name_identifier.is_none() {
@@ -109,8 +109,13 @@ impl VisitMut for InspectorPlugin {
     }
 
     fn visit_mut_module(&mut self, module: &mut Module) {
-        let (_, _, filename) =
-            get_file_info(self.project_cwd.clone(), &self.source_map, module.span.lo);
+        let filename = if module.span.is_dummy() {
+            String::new()
+        } else {
+            let (_, _, f) =
+                get_file_info(self.project_cwd.clone(), &self.source_map, module.span.lo);
+            f
+        };
 
         // Add file name variable declaration at the start of the module
         if let Some(file_name_id) = &self.file_name_identifier {

@@ -7,7 +7,7 @@ const plugins = [
     projectCwd: resolve(process.cwd()),
     trustedEditor: 'cursor',
     customLaunchEditorEndpoint: '/hps_inspector',
-    keys: ['$mod', 'g'],
+    keys: ['$mod', 'i'],
     hideDomPathAttr: false,
   }),
 ];

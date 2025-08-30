@@ -43,18 +43,18 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@hyperse/eslint-config-hyperse": "^1.4.4",
+    "@hyperse/eslint-config-hyperse": "^1.4.7",
     "@hyperse/inspector-common": "workspace:*",
-    "@swc/core": "1.12.1",
-    "@swc/wasm-web": "1.11.29",
-    "@types/node": "22.15.29",
+    "@swc/core": "^1.13.5",
+    "@swc/wasm-web": "^1.13.5",
+    "@types/node": "^24.3.0",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/ui": "^3.2.4",
-    "eslint": "^9.28.0",
-    "npm-run-all": "4.1.5",
-    "rimraf": "6.0.1",
-    "typescript": "5.8.3",
-    "vite-tsconfig-paths": "5.1.4",
+    "eslint": "^9.34.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.2",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "engines": {
