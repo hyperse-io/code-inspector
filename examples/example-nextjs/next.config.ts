@@ -1,8 +1,10 @@
+import type { NextConfig } from 'next';
 import { resolve } from 'path';
+import type { NextConfigPlugin } from '@hyperse/next-config';
 import { createNextConfig } from '@hyperse/next-config';
 import withNextInspector from '@hyperse/next-inspector/plugin';
 
-const plugins = [
+const plugins: NextConfigPlugin[] = [
   withNextInspector({
     projectCwd: resolve(process.cwd()),
     trustedEditor: 'cursor',
@@ -15,9 +17,8 @@ const plugins = [
 /**
  * Don't be scared of the generics here.
  * All they do is to give us autocompletion when using this.
- * @type {import("next").NextConfig}
  */
-const nextConfig = {
+const nextConfig: NextConfig = {
   /* config options here */
   turbopack: {
     rules: {
