@@ -55,6 +55,19 @@ That's exactly why **@hyperse/inspector** was created – to make your developme
 - ⌨️ **Customizable Hotkeys:** Change the activation hotkey to fit your preferences.
 - 🌍 **Universal:** Designed to work with various project setups.
 
+### Swc version 
+
+Due to the version incompatibility issue of swc, it is recommended that developers use the `@hyperse/inspector:"~x.x.x"` version to depend on the inspector package.
+
+Starting from version 2.0, there will be incompatibilities in the minor versions. The fundamental reason for this is due to the swc_core version. The specific corresponding relationship can be viewed at [selecting-swc-core](https://swc.rs/docs/plugin/selecting-swc-core).
+
+#### Usage rspack
+- rspack >= 1.6.0, use 2.x
+- rspack < 1.6.0, use 1.x
+
+#### Usage nextjs
+Since the version of swc_core that turbopack relies on has not been upgraded yet, please use the 1.x version first.
+
 ### Default Hotkeys
 
 - macOS: `⌘ + i`

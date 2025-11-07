@@ -46,26 +46,26 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.28.5",
     "@babel/helper-plugin-utils": "^7.27.1",
     "@hyperse/inspector-common": "workspace:*"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.27.1",
-    "@hyperse/eslint-config-hyperse": "^1.4.7",
+    "@babel/preset-react": "^7.28.5",
+    "@hyperse/eslint-config-hyperse": "^1.4.8",
     "@types/babel__core": "^7.20.5",
     "@types/babel__helper-plugin-utils": "^7",
-    "@types/node": "^24.3.0",
-    "@types/react": "^19.1.12",
-    "@vitest/coverage-istanbul": "^3.2.4",
-    "@vitest/ui": "^3.2.4",
-    "eslint": "^9.34.0",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@vitest/coverage-istanbul": "^4.0.7",
+    "@vitest/ui": "^4.0.7",
+    "eslint": "^9.39.1",
     "npm-run-all": "^4.1.5",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "rimraf": "^6.0.1",
-    "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rimraf": "^6.1.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.7"
   },
   "engines": {
     "node": ">=18.0.0"
