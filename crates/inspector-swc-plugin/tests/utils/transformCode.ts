@@ -39,7 +39,5 @@ export const transformCode = async (
       },
     },
     filename: fileName,
-  }).catch((error) => {
-    console.error(error);
   });
 };
