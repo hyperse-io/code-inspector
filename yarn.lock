@@ -6356,8 +6356,8 @@ __metadata:
     eslint: "npm:^9.39.1"
     jsdom: "npm:^27.1.0"
     npm-run-all: "npm:^4.1.5"
-    react: "npm:^19.1.1"
-    react-dom: "npm:^19.1.1"
+    react: "npm:^19.2.0"
+    react-dom: "npm:^19.2.0"
     rimraf: "npm:^6.1.0"
     styled-components: "npm:^6.1.19"
     tsup: "npm:^8.5.0"
@@ -6528,7 +6528,7 @@ __metadata:
     vitest: "npm:^4.0.7"
   peerDependencies:
     next: ">=16.0.1"
-    react: ">=19.1.1"
+    react: ">=19.2.0"
   peerDependenciesMeta:
     react:
       optional: true
@@ -24665,7 +24665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.1.1, react-dom@npm:^19.2.0":
+"react-dom@npm:^19.2.0":
   version: 19.2.0
   resolution: "react-dom@npm:19.2.0"
   dependencies:
@@ -24832,7 +24832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.1.0, react@npm:^19.1.1, react@npm:^19.2.0":
+"react@npm:^19.1.0, react@npm:^19.2.0":
   version: 19.2.0
   resolution: "react@npm:19.2.0"
   checksum: 10c0/1b6d64eacb9324725bfe1e7860cb7a6b8a34bc89a482920765ebff5c10578eb487e6b46b2f0df263bd27a25edbdae2c45e5ea5d81ae61404301c1a7192c38330
