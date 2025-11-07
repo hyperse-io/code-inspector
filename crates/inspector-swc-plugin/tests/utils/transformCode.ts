@@ -2,13 +2,6 @@ import path from 'path/posix';
 import { fileURLToPath } from 'url';
 import { transform } from '@swc/core';
 
-const pluginName = 'inspector_swc_plugin.wasm';
-const pluginPath = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  '../../dist',
-  pluginName
-);
-
 export const transformCode = async (
   code: string,
   fileName: string,
@@ -17,6 +10,13 @@ export const transformCode = async (
     isAbsolutePath?: boolean;
   }
 ) => {
+  const pluginName = 'inspector_swc_plugin.wasm';
+  const pluginPath = path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    '../../dist',
+    pluginName
+  );
+
   return transform(code, {
     sourceMaps: true,
     jsc: {
@@ -39,5 +39,7 @@ export const transformCode = async (
       },
     },
     filename: fileName,
+  }).catch((error) => {
+    console.error(error);
   });
 };
