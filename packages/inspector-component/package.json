@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@flatjs/forge": "^2.3.10",
+    "@flatjs/forge-plugin-styling": "^2.2.5",
     "@hyperse/eslint-config-hyperse": "^1.4.8",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
