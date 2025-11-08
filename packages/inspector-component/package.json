@@ -44,7 +44,7 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@flatjs/cli": "^3.0.6",
+    "@flatjs/forge": "^2.3.10",
     "@hyperse/eslint-config-hyperse": "^1.4.8",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
