@@ -1,5 +1,17 @@
 # @hyperse/inspector-component
 
+## 2.0.0
+
+### Major Changes
+
+- [#49](https://github.com/hyperse-io/code-inspector/pull/49) [`77dfa1b`](https://github.com/hyperse-io/code-inspector/commit/77dfa1ba3425d030236d0f28124a317d56dc3bc7) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - feat: publish v2.0.0
+  chore: update dependencies across the project for improved compatibility and performance;
+
+### Patch Changes
+
+- Updated dependencies [[`77dfa1b`](https://github.com/hyperse-io/code-inspector/commit/77dfa1ba3425d030236d0f28124a317d56dc3bc7)]:
+  - @hyperse/inspector-common@2.0.0
+
 ## 1.1.9
 
 ### Patch Changes
