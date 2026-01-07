@@ -1,5 +1,14 @@
 # @hyperse/inspector-webpack
 
+## 2.0.1
+
+### Patch Changes
+
+- [#51](https://github.com/hyperse-io/code-inspector/pull/51) [`e0bc78d`](https://github.com/hyperse-io/code-inspector/commit/e0bc78d6118e4696e801dd852aed3b9336bf1958) Thanks [@tclxshunquan-wang](https://github.com/tclxshunquan-wang)! - chore: update dependencies across the project for improved compatibility and performance;
+
+- Updated dependencies [[`e0bc78d`](https://github.com/hyperse-io/code-inspector/commit/e0bc78d6118e4696e801dd852aed3b9336bf1958)]:
+  - @hyperse/inspector-common@2.0.1
+
 ## 2.0.0
 
 ### Major Changes
