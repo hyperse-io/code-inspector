@@ -17,7 +17,7 @@ export const AppPage = () => {
           console.log(e);
         }}
       />
-      <Chip color="primary" variant="flat">
+      <Chip color="default" variant="soft">
         Hyperse
       </Chip>
       <Fragment>

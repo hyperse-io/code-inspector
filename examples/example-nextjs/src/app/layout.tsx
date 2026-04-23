@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { InspectorProvider } from '@hyperse/next-inspector/client';
-import { ProviderWrapper } from '../components/Providers/ProviderWrapper';
 import '../styles/globals.css';
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default async function RootLayout({
          * Only inject InspectorProvider in development environment
          */}
         {isDev && <InspectorProvider />}
-        <ProviderWrapper>{children}</ProviderWrapper>
+        {children}
       </body>
     </html>
   );

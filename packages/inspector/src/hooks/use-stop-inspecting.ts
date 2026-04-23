@@ -9,8 +9,8 @@ import { useEffectEvent } from './use-effect-event.js';
 
 export const useStopInspecting = <
   InspectAgents extends InspectAgent<any>[] = InspectAgent<DOMElement>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 >(options: {
   agentRef: React.RefObject<InspectAgent<Element> | undefined>;
   inspectAgents: InspectAgent<any>[];

@@ -48,8 +48,8 @@ export type OnInspectElementParams<Element = DOMElement> = Omit<
 
 export interface InspectorProps<
   InspectAgents extends InspectAgent<any>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 > {
   /**
    * Custom launch editor endpoint.
