@@ -10,8 +10,8 @@ import type {
 
 export const clickElementEvent = <
   InspectAgents extends InspectAgent<any>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 >(options: {
   agentRef: React.RefObject<InspectAgent<Element> | undefined>;
   onClickElement: InspectorProps<InspectAgents, Element>['onClickElement'];

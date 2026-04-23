@@ -6,7 +6,7 @@ import './index.css';
 export const AppPage = () => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-8 overflow-auto p-12">
-      <Chip color="primary" variant="flat">
+      <Chip color="default" variant="soft">
         Hyperse
       </Chip>
       <Fragment>

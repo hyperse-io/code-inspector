@@ -32,8 +32,8 @@ const contextPanelSizeLimit: InspectContextPanelShowParams['sizeLimit'] = {
 
 export const useStartInspecting = <
   InspectAgents extends InspectAgent<any>[] = InspectAgent<DOMElement>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 >(
   props: InspectorProps<InspectAgents>,
   ondDeactivate: () => void

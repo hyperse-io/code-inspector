@@ -44,26 +44,26 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@hyperse/eslint-config-hyperse": "^1.5.0",
-    "@types/node": "^25.0.3",
-    "@types/react": "^19.2.7",
-    "@vitest/coverage-istanbul": "^4.0.16",
-    "@vitest/ui": "^4.0.16",
-    "eslint": "^9.39.2",
-    "jsdom": "^27.4.0",
+    "@hyperse/eslint-config-hyperse": "^1.7.2",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@vitest/coverage-istanbul": "^4.1.5",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "^10.2.1",
+    "jsdom": "^29.0.2",
     "npm-run-all": "^4.1.5",
-    "react": "^19.1.0",
-    "react-dom": "^19.2.3",
-    "rimraf": "^6.1.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "rimraf": "^6.1.3",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.16"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   },
   "dependencies": {
     "@hyperse/inspector-common": "workspace:*",
     "@hyperse/inspector-component": "workspace:*",
     "@hyperse/tinykeys": "^1.0.1",
-    "@types/react-reconciler": "^0.32.3"
+    "@types/react-reconciler": "^0.33.0"
   },
   "peerDependencies": {
     "react": "*"

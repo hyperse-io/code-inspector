@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "incremental": false,
     "moduleResolution": "nodenext",
+    "ignoreDeprecations": "6.0",
     "paths": {},
     "types": ["@types/node"]
   },

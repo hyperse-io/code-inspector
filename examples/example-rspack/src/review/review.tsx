@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { User } from '@heroui/react';
-import { cn } from '@heroui/react';
+import { Avatar, AvatarFallback, AvatarImage, cn } from '@heroui/react';
 import { Icon } from '@iconify/react';
 
 export type ReviewType = {
@@ -30,21 +29,18 @@ export const Review = ({
   <div {...props}>
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <User
-          avatarProps={{
-            src: user.avatar,
-          }}
-          classNames={{
-            name: 'font-medium',
-            description: 'text-small',
-          }}
-          description={new Intl.DateTimeFormat('en-US', {
+        <Avatar>
+          <AvatarImage src={user.avatar} />
+          <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+        </Avatar>
+        <p className="text-default-900 font-medium">{user.name}</p>
+        <p className="text-default-500">
+          {new Intl.DateTimeFormat('en-US', {
             month: 'long',
             day: 'numeric',
             year: 'numeric',
           }).format(new Date(createdAt))}
-          name={user.name}
-        />
+        </p>
       </div>
       <div className="flex items-center gap-1">
         {Array.from({ length: 5 }, (_, i) => {

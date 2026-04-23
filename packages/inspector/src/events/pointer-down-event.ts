@@ -5,8 +5,8 @@ import type { hoverElementEvent } from './hover-element-event.js';
 
 export const pointerDownEvent = <
   InspectAgents extends InspectAgent<any>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 >(options: {
   agentRef: React.RefObject<InspectAgent<Element> | undefined>;
   handleHoverElement: ReturnType<typeof hoverElementEvent>;

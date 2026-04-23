@@ -8,8 +8,8 @@ import type {
 
 export const hoverElementEvent = <
   InspectAgents extends InspectAgent<any>[],
-  Element extends
-    ElementInInspectAgents<InspectAgents> = ElementInInspectAgents<InspectAgents>,
+  Element extends ElementInInspectAgents<InspectAgents> =
+    ElementInInspectAgents<InspectAgents>,
 >(options: {
   agentRef: React.RefObject<InspectAgent<Element> | undefined>;
   onHoverElement: InspectorProps<InspectAgents, Element>['onHoverElement'];
