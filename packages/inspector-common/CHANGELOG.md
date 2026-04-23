@@ -1,5 +1,11 @@
 # @hyperse/inspector-common
 
+## 2.0.2
+
+### Patch Changes
+
+- [#53](https://github.com/hyperse-io/code-inspector/pull/53) [`6b7688e`](https://github.com/hyperse-io/code-inspector/commit/6b7688e4925c993b5f92e991e3eeef357ec4464a) Thanks [@ShunquanWang](https://github.com/ShunquanWang)! - chore: update package versions and configurations for improved compatibility and performance; includes dependency upgrades and adjustments to TypeScript configurations
+
 ## 2.0.1
 
 ### Patch Changes
