@@ -5,10 +5,6 @@ on:
     branches:
       - main
       
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-
 jobs:
   release:
     # Basic security: the release job can only be executed from this repo and from the main branch (not a remote thing)
@@ -17,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # To run comparison we need more than the latest commit.
           # @link https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
@@ -39,9 +35,10 @@ jobs:
           cargo --version
 
       - name: Use Node.js 24.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24.x
+          package-manager-cache: false
 
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
