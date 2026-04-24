@@ -1,0 +1,24 @@
+---
+description: Enable @hyperse/inspector-babel-plugin in development.
+---
+
+# Babel plugin
+
+Add the plugin **only** when `NODE_ENV === 'development'` so production bundles
+stay lean.
+
+```js
+// babel.config.cjs
+module.exports = {
+  presets: [
+    '@babel/preset-typescript',
+    ['@babel/preset-react', { runtime: 'automatic' }],
+  ],
+  plugins: [
+    process.env.NODE_ENV === 'development' && '@hyperse/inspector-babel-plugin',
+  ].filter(Boolean),
+};
+```
+
+If you use `babel-loader` inside Webpack or Rspack, keep the same rule: enable
+the plugin for dev builds only.

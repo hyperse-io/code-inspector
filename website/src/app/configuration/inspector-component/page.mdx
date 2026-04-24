@@ -1,0 +1,31 @@
+---
+description: Public props on @hyperse/inspector Inspector.
+---
+
+# `<Inspector />` props
+
+These map to `InspectorProps` in `@hyperse/inspector`.
+
+## Interaction
+
+- `keys` — string chords (`$mod` = Cmd on macOS / Ctrl on Windows). Default
+  `['$mod','i']` / `['Ctrl','i']`.
+- `active` / `onActiveChange` — controlled mode; when `active` is set, hotkeys
+  still toggle but you own the boolean state for UI sync.
+
+## Launch & metadata
+
+- `customLaunchEditorEndpoint` — must match middleware / Next route. Default
+  `/__hps_inspector`.
+- `hideDomPathAttr` — hide DOM path attributes in markup. Default `true`.
+- `hideConsole` / `hideContext` — silence promotion logs.
+
+## Advanced
+
+- `disable` — hard off switch (defaults to production-safe `true` when
+  `NODE_ENV === 'production'`).
+- `inspectAgents` — plug custom agents (v2.1+).
+- `onInspectElement` / `onHoverElement` / `onClickElement` — observe or override
+  navigation; use `gotoServerEditor` from `@hyperse/inspector` to keep the
+  default server launch after custom logic.
+- `ContextPanel` — swap the built-in context UI component.

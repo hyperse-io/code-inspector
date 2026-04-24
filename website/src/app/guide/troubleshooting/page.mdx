@@ -1,0 +1,39 @@
+---
+description: Common fixes for editor launch and SWC version alignment.
+---
+
+import { Callout } from 'nextra/components';
+
+# Troubleshooting
+
+## Editor does not open
+
+- Confirm `LAUNCH_EDITOR` or your editor binary is available in the shell that
+  starts the dev server.
+- Match `customLaunchEditorEndpoint` between `<Inspector />`, middleware, and
+  Next plugin options.
+- Check the network tab: the launch request should return `200` without HTML
+  error pages.
+
+## Wrong file or line
+
+- Ensure the Babel/SWC plugin runs **only in development** and is ordered before
+  any plugin that strips metadata.
+- Disable conflicting JSX source plugins that rewrite locations differently.
+
+## SWC / Next version mismatches
+
+Inspector’s SWC plugin tracks `swc_core`. Pin `@hyperse/inspector` with a tilde
+range (`~2.0.2`) to avoid accidental minor drift.
+
+<Callout type="warning">
+  **Rspack:** rspack ≥ 1.6 → Inspector **2.x**; older rspack → **1.x**. **Next /
+  Turbopack:** until upstream `swc_core` catches up, stay on Inspector **1.x**
+  for Turbopack-heavy workflows (see project README).
+</Callout>
+
+## Still stuck?
+
+Open an issue on
+[github.com/hyperse-io/code-inspector](https://github.com/hyperse-io/code-inspector)
+with your bundler versions and a minimal reproduction.

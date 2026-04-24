@@ -1,0 +1,38 @@
+---
+description: Options for @hyperse/next-inspector createNextInspectorPlugin / withNextInspector.
+---
+
+# Next.js plugin (`@hyperse/next-inspector`)
+
+The default export is a **higher-order function** that accepts `PluginOptions` and
+returns `withNextInspector(nextConfig?)`.
+
+```ts
+import withNextInspector from '@hyperse/next-inspector/plugin';
+
+export default withNextInspector({
+  projectCwd: process.cwd(),
+  trustedEditor: 'cursor',
+  customLaunchEditorEndpoint: '/hps_inspector',
+  keys: ['$mod', 'i'],
+})(/* nextConfig */);
+```
+
+## Options (`PluginOptions`)
+
+| Option                       | Description                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| `projectCwd`                 | Project root for resolving file paths. Default `process.cwd()`.                 |
+| `trustedEditor`              | Preferred editor id (see `TrustedEditor` enum). Default `code`.                 |
+| `keys`                       | Hotkey chords for the injected client (same semantics as `<Inspector keys />`). |
+| `injectClient`               | Auto-inject inspector entry. Default `true`.                                    |
+| `customLaunchEditorEndpoint` | API route base path. Default `/hps_inspector`. Must match client + route file.  |
+| `hideConsole`                | Suppress promotion logs. Default `false`.                                       |
+| `hideContext`                | Suppress page-context logs. Default `false`.                                    |
+| `hideDomPathAttr`            | Hide DOM path attributes. Default `true`.                                       |
+| `disable`                    | Hard-disable inspector (auto `true` in production).                             |
+
+The plugin also registers the SWC wasm plugin `@hyperse/inspector-swc-plugin`.
+
+Ensure your App Router exposes a **route handler** at the same path as
+`customLaunchEditorEndpoint` (see `examples/example-nextjs` in the repo).

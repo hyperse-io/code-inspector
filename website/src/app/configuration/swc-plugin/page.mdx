@@ -1,0 +1,26 @@
+---
+description: Register @hyperse/inspector-swc-plugin for SWC-based pipelines.
+---
+
+# SWC plugin
+
+Register the published wasm package in `jsc.experimental.plugins` for
+development builds:
+
+```json
+{
+  "jsc": {
+    "parser": { "syntax": "typescript", "tsx": true },
+    "transform": { "react": { "runtime": "automatic" } },
+    "experimental": {
+      "plugins": [["@hyperse/inspector-swc-plugin", {}]]
+    }
+  }
+}
+```
+
+When using **Rspack** `builtin:swc-loader`, pass the same `experimental.plugins`
+array for dev mode only.
+
+> Version alignment between `@hyperse/inspector-swc-plugin` and your bundler’s
+> `swc_core` matters—see [Troubleshooting](/guide/troubleshooting).

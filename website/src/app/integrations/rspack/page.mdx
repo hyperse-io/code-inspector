@@ -1,0 +1,43 @@
+---
+description: Rspack devServer + builtin:swc-loader with the inspector wasm plugin.
+---
+
+# Rspack
+
+```js
+import { createLaunchEditorMiddleware } from '@hyperse/inspector-middleware';
+
+export default {
+  devServer: {
+    setupMiddlewares(middlewares) {
+      if (process.env.NODE_ENV === 'development') {
+        middlewares.unshift(createLaunchEditorMiddleware({}));
+      }
+      return middlewares;
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: 'builtin:swc-loader',
+        options: {
+          jsc: {
+            parser: { syntax: 'typescript', tsx: true },
+            transform: { react: { runtime: 'automatic' } },
+            experimental: {
+              plugins:
+                process.env.NODE_ENV === 'development'
+                  ? [['@hyperse/inspector-swc-plugin', {}]]
+                  : [],
+            },
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+See `examples/example-rspack` for a working workspace reference.
