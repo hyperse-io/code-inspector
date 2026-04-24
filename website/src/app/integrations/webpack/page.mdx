@@ -1,0 +1,41 @@
+---
+description: Webpack devServer setupMiddlewares + Babel or SWC loader.
+---
+
+# Webpack
+
+```js
+import { createLaunchEditorMiddleware } from '@hyperse/inspector-middleware';
+
+export default (env, argv) => {
+  const isDev = argv.mode === 'development';
+  return {
+    devServer: {
+      setupMiddlewares(middlewares) {
+        if (isDev) {
+          middlewares.unshift(createLaunchEditorMiddleware({}));
+        }
+        return middlewares;
+      },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(j|t)sx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              plugins: [isDev && '@hyperse/inspector-babel-plugin'].filter(
+                Boolean
+              ),
+            },
+          },
+        },
+      ],
+    },
+  };
+};
+```
+
+Point `babel-loader` (or SWC) at the inspector plugin **only** in development.

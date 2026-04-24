@@ -1,0 +1,56 @@
+---
+description: Use @hyperse/next-inspector with the App Router.
+---
+
+import { Callout } from 'nextra/components';
+
+# Next.js
+
+<Callout type="info">
+  Prefer `@hyperse/next-inspector` for Next 13+ projects—it registers the SWC
+  plugin and scaffolds the inspector API route for you.
+</Callout>
+
+## 1. Install
+
+```bash
+pnpm add -D @hyperse/next-inspector @hyperse/inspector
+```
+
+## 2. Wrap `next.config`
+
+```ts
+import { resolve } from 'node:path';
+import { createNextConfig } from '@hyperse/next-config';
+import withNextInspector from '@hyperse/next-inspector/plugin';
+
+const plugins = [
+  withNextInspector({
+    projectCwd: resolve(process.cwd()),
+    trustedEditor: 'cursor',
+    customLaunchEditorEndpoint: '/hps_inspector',
+    keys: ['$mod', 'i'],
+  }),
+];
+
+const nextConfig = {
+  /* ... */
+};
+
+export default createNextConfig(nextConfig, plugins);
+```
+
+## 3. Route handler
+
+On the first **development** run, `@hyperse/next-inspector` creates
+`app/<customLaunchEditorEndpoint>/route.ts` (or under `src/app`) if the file is
+missing, re-exporting `@hyperse/next-inspector/api`. You can commit that file
+or let each developer generate it locally—either way the folder name must match
+`customLaunchEditorEndpoint`.
+
+## 4. Client
+
+Render `<Inspector customLaunchEditorEndpoint="/hps_inspector" />` (or align
+with your chosen path) during development.
+
+See [Next plugin options](/configuration/next-plugin).

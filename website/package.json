@@ -1,84 +1,72 @@
 {
-  "name": "website",
-  "version": "1.0.1",
+  "name": "@hyperse/code-inspector-website",
+  "version": "0.0.1",
+  "description": "Hyperse Code Inspector Website",
   "private": true,
-  "keywords": [
-    "hyperse",
-    "docusaurus",
-    "website",
-    "docs"
-  ],
+  "homepage": "https://github.com/hyperse-io/code-inspector#readme",
+  "bugs": {
+    "url": "https://github.com/hyperse-io/code-inspector/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:hyperse-io/docusaurus-hyperse.git"
+    "url": "https://github.com/hyperse-io/code-inspector"
   },
+  "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "docusaurus build",
-    "clear": "docusaurus clear",
-    "deploy": "docusaurus deploy",
-    "docusaurus": "docusaurus",
+    "build": "next build && yarn postbuild",
+    "postbuild": "next-sitemap && pagefind --site .next/server/app --output-path public/_pagefind",
+    "build:ghpage": "cross-env NEXT_BUILD_ENV_OUTPUT='export' next build && yarn postbuild:ghpage",
+    "postbuild:ghpage": "next-sitemap && pagefind --site .next/server/app --output-path out/_pagefind",
+    "dev": "next dev -p 3000 -H 0.0.0.0",
+    "fix-all-files": "eslint . --fix",
+    "g:lint-staged-files": "lint-staged --allow-empty",
     "lint": "eslint .",
-    "lint-fix": "yarn lint --fix",
-    "lint-staged-files": "lint-staged --allow-empty",
-    "serve": "docusaurus serve",
-    "start": "docusaurus start",
-    "swizzle": "docusaurus swizzle",
+    "start": "next start -p 3000 -H 0.0.0.0",
     "test": "vitest run",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "write-translations": "docusaurus write-translations"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
   },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
-    "@docusaurus/core": "^3.10.0",
-    "@docusaurus/plugin-content-docs": "^3.10.0",
-    "@docusaurus/plugin-google-gtag": "^3.10.0",
-    "@docusaurus/preset-classic": "^3.10.0",
-    "@heroicons/react": "^2.2.0",
-    "@mdx-js/react": "^3.1.1",
+    "@heroui/react": "^3.0.3",
+    "@iconify/react": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "next": "^16.2.4",
+    "nextra": "^4.6.1",
+    "nextra-theme-docs": "^4.6.1",
     "postcss": "^8.5.10",
-    "prism-react-renderer": "^2.4.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "tailwindcss": "^4.2.4",
-    "usehooks-ts": "^3.1.1"
+    "react-is": "^19.2.5",
+    "recharts": "^3.8.1",
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.6.0",
-    "@changesets/cli": "2.31.0",
-    "@commitlint/cli": "20.5.0",
-    "@commitlint/config-conventional": "20.5.0",
-    "@docusaurus/module-type-aliases": "3.10.0",
+    "@changesets/changelog-github": "^0.6.0",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@hyperse/eslint-config-hyperse": "^1.7.2",
+    "@hyperse/next-config": "^1.0.7",
     "@tailwindcss/postcss": "^4.2.4",
-    "@tsconfig/docusaurus": "^2.0.9",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "commitizen": "4.3.1",
-    "cz-conventional-changelog": "3.3.0",
+    "commitizen": "^4.3.1",
+    "cross-env": "^10.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^10.2.1",
-    "husky": "9.1.7",
-    "lint-staged": "16.4.0",
-    "typescript": "6.0.3",
-    "vitest": "^4.1.5"
-  },
-  "packageManager": "yarn@4.3.0"
+    "lint-staged": "^16.4.0",
+    "next-sitemap": "^4.2.3",
+    "pagefind": "^1.5.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5",
+    "zod": "^4.3.6"
+  }
 }

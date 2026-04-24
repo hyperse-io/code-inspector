@@ -1,0 +1,41 @@
+---
+description: Build-time metadata, client inspector, and launch middleware.
+---
+
+# How It Works
+
+Three coordinated layers make “click DOM → open IDE” reliable.
+
+## 1. Compile-time (Babel or SWC)
+
+In development, the Babel or SWC plugin annotates JSX so each inspected element
+carries **file**, **line**, and **column** metadata your runtime can read. This
+is dev-only and should not ship to production bundles.
+
+## 2. Client (`@hyperse/inspector`)
+
+The React inspector listens for your hotkey (default `⌘I` / `Ctrl+I`), enters
+inspect mode, resolves the nearest component metadata from the tree, and issues
+an HTTP request to the dev server with `fileName`, `lineNumber`, and
+`colNumber` query parameters.
+
+You can override behavior with `onInspectElement` and call `gotoServerEditor`
+yourself when you need custom routing.
+
+## 3. Server (`@hyperse/inspector-middleware`)
+
+`createLaunchEditorMiddleware` matches the configured path, validates the
+request, resolves `fileName` against `projectCwd`, optionally checks
+`trustedEditor`, and invokes `launch-editor` so the right desktop app opens.
+
+## Next.js shortcut
+
+`@hyperse/next-inspector` merges SWC plugin registration, optional client
+injection, and an App Router **route handler** so you do not wire Express-style
+middleware manually. Options are documented under
+[Next plugin](/configuration/next-plugin).
+
+## Security note
+
+Only run the middleware in **development**. The Next plugin disables in
+production by default (`disable` option).

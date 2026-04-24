@@ -1,0 +1,33 @@
+---
+description: Vite configureServer middleware and @vitejs/plugin-react.
+---
+
+# Vite
+
+```ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { createLaunchEditorMiddleware } from '@hyperse/inspector-middleware';
+
+export default defineConfig(({ mode }) => {
+  const isDev = mode === 'development';
+  return {
+    plugins: [
+      react({
+        babel: {
+          plugins: [isDev && '@hyperse/inspector-babel-plugin'].filter(Boolean),
+        },
+      }),
+      isDev && {
+        name: 'hyperse-inspector',
+        configureServer(server) {
+          server.middlewares.use(createLaunchEditorMiddleware({}));
+        },
+      },
+    ].filter(Boolean),
+  };
+});
+```
+
+If `@vitejs/plugin-react` uses SWC instead of Babel, configure
+`@hyperse/inspector-swc-plugin` in `.swcrc` instead of the Babel plugin.

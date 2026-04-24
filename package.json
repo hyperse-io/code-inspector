@@ -54,6 +54,9 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "resolutions": {
+    "webpackbar": "^7.0.0"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.31.0",

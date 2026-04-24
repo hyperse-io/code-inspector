@@ -1,0 +1,77 @@
+---
+description: Install packages, mount the inspector, enable transforms, and register middleware.
+---
+
+import { Callout } from 'nextra/components';
+
+# Getting Started
+
+<Callout type="info">
+  Use the same **launch URL** everywhere: the `<Inspector />` prop
+  `customLaunchEditorEndpoint`, the middleware `customLaunchEditorEndpoint`, and
+  (for Next) `withNextInspector({customLaunchEditorEndpoint})` must match. The
+  shared default in `@hyperse/inspector-common` is `/__hps_inspector`.
+</Callout>
+
+## 1. Install packages
+
+```bash
+pnpm add -D @hyperse/inspector @hyperse/inspector-middleware
+```
+
+Pick **one** compile-time integration:
+
+- Babel: `@hyperse/inspector-babel-plugin`
+- SWC: `@hyperse/inspector-swc-plugin`
+
+For **Next.js**, also install:
+
+```bash
+pnpm add -D @hyperse/next-inspector
+```
+
+## 2. Render `<Inspector />` (development only)
+
+```tsx
+import { Inspector } from '@hyperse/inspector';
+
+export function App() {
+  const isDev = process.env.NODE_ENV === 'development';
+  return (
+    <>
+      {isDev ? <Inspector /> : null}
+      {/* your app */}
+    </>
+  );
+}
+```
+
+Optional props include `keys`, `active` / `onActiveChange`, `hideDomPathAttr`,
+`onInspectElement`, and `customLaunchEditorEndpoint`. See
+[Inspector component](/configuration/inspector-component).
+
+## 3. Enable the transform (dev only)
+
+- **Babel:** add `@hyperse/inspector-babel-plugin` when `NODE_ENV === 'development'`.
+- **SWC:** register the wasm plugin under `jsc.experimental.plugins` for dev builds.
+
+See [Babel plugin](/configuration/babel-plugin) and [SWC plugin](/configuration/swc-plugin).
+
+## 4. Register dev-server middleware
+
+Use `createLaunchEditorMiddleware` from `@hyperse/inspector-middleware` on your
+dev server. Examples:
+
+- [Webpack](/integrations/webpack)
+- [Vite](/integrations/vite)
+- [Rspack](/integrations/rspack)
+- [Next.js](/integrations/nextjs) (prefer `@hyperse/next-inspector`)
+
+## 5. Verify your editor CLI
+
+Ensure `code`, `cursor`, `webstorm`, or your chosen CLI is on `PATH`, or set
+`LAUNCH_EDITOR` / `EDITOR` before starting the dev server.
+
+---
+
+Next: [How It Works](/guide/how-it-works) · [Troubleshooting](/guide/troubleshooting)

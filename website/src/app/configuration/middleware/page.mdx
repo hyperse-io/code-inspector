@@ -1,0 +1,28 @@
+---
+description: createLaunchEditorMiddleware from @hyperse/inspector-middleware.
+---
+
+# Middleware (`@hyperse/inspector-middleware`)
+
+```ts
+import { createLaunchEditorMiddleware } from '@hyperse/inspector-middleware';
+
+app.use(
+  createLaunchEditorMiddleware({
+    projectCwd: process.cwd(),
+    customLaunchEditorEndpoint: '/__hps_inspector',
+    trustedEditor: 'cursor',
+  })
+);
+```
+
+## `CreateLaunchEditorMiddlewareOptions`
+
+| Field                        | Description                                                                                                 |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `projectCwd`                 | Root used to resolve `fileName` from the query string. Default `process.cwd()`.                             |
+| `customLaunchEditorEndpoint` | URL prefix to handle. Default `launchEditorEndpoint` from `@hyperse/inspector-common` (`/__hps_inspector`). |
+| `trustedEditor`              | Fallback editor when the request does not specify one. Defaults to `process.env.LAUNCH_EDITOR`.             |
+
+The handler validates trusted editors before spawning `launch-editor`. Unknown
+`editor` query values are rejected with `400`.
