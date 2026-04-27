@@ -4,12 +4,13 @@ import { resolve } from 'path';
 import {
   launchEditorEndpoint,
   type LaunchEditorParams,
-  TrustedEditor,
+  type TrustedEditor,
+  TrustedEditorEnum,
 } from '@hyperse/inspector-common';
 import { getPackagesSync } from '@manypkg/get-packages';
 import { getInspectorConfig } from './get-inspector-config.js';
 
-const trustedEditors = new Set(Object.values(TrustedEditor));
+const trustedEditors = new Set<TrustedEditor>(Object.values(TrustedEditorEnum));
 
 const handler = async (request: NextRequest) => {
   const pluginOptions = await getInspectorConfig();

@@ -4,10 +4,11 @@ import { resolve } from 'node:path';
 import { launchEditorEndpoint } from '@hyperse/inspector-common';
 import {
   type LaunchEditorParams,
-  TrustedEditor,
+  type TrustedEditor,
+  TrustedEditorEnum,
 } from '@hyperse/inspector-common';
 
-const trustedEditors = new Set(Object.values(TrustedEditor));
+const trustedEditors = new Set<TrustedEditor>(Object.values(TrustedEditorEnum));
 
 export type CreateLaunchEditorMiddlewareOptions = {
   /**
