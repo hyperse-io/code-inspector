@@ -1,5 +1,17 @@
 # @hyperse/next-inspector
 
+## 2.0.3
+
+### Patch Changes
+
+- [#55](https://github.com/hyperse-io/code-inspector/pull/55) [`0732aae`](https://github.com/hyperse-io/code-inspector/commit/0732aaec4f6f91cc12fd4d9f91d7b4356ad0c282) Thanks [@ShunquanWang](https://github.com/ShunquanWang)! - refactor: rename TrustedEditor enum to TrustedEditorEnum and update references throughout the codebase for consistency
+
+- Updated dependencies [[`0732aae`](https://github.com/hyperse-io/code-inspector/commit/0732aaec4f6f91cc12fd4d9f91d7b4356ad0c282)]:
+  - @hyperse/inspector-component@2.0.3
+  - @hyperse/inspector-swc-plugin@2.0.3
+  - @hyperse/inspector-common@2.0.3
+  - @hyperse/inspector@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes
