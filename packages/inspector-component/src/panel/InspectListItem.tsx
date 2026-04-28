@@ -1,4 +1,7 @@
-import { TrustedEditor } from '@hyperse/inspector-common';
+import {
+  type TrustedEditor,
+  TrustedEditorEnum,
+} from '@hyperse/inspector-common';
 import { Panel } from '../components/index.js';
 import { copyText } from '../helpers/helper-copy-text.js';
 import type { ElementItem } from '../types/type-element-item.js';
@@ -75,7 +78,7 @@ export const InspectListItem = <Item extends ElementItem = ElementItem>({
               event.preventDefault();
               onClickEditor?.({
                 item: item,
-                editor: TrustedEditor.VSCode,
+                editor: TrustedEditorEnum.VSCode,
               });
             }}
           >
@@ -99,7 +102,7 @@ export const InspectListItem = <Item extends ElementItem = ElementItem>({
               event.preventDefault();
               onClickEditor?.({
                 item: item,
-                editor: TrustedEditor.Cursor,
+                editor: TrustedEditorEnum.Cursor,
               });
             }}
           >

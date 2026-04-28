@@ -16,7 +16,7 @@ export interface LaunchEditorParams {
  *
  * with using other custom editors, please to use URL-Scheme from browser to open it.
  */
-export enum TrustedEditor {
+export enum TrustedEditorEnum {
   VSCode = 'code',
   VSCodeInsiders = 'code-insiders',
   VSCodium = 'vscodium',
@@ -38,3 +38,8 @@ export enum TrustedEditor {
   Neovim = 'nvim',
   Emacs = 'emacs',
 }
+
+/**
+ * The trusted editors that can be launched from browser.
+ */
+export type TrustedEditor = `${TrustedEditorEnum}`;

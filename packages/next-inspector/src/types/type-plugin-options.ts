@@ -11,7 +11,7 @@ export type PluginOptions = {
    * The trusted editors that can be launched from browser.
    * @default 'code'
    */
-  trustedEditor?: `${TrustedEditor}`;
+  trustedEditor?: TrustedEditor;
 
   /**
    * Inspector Component toggle hotkeys,

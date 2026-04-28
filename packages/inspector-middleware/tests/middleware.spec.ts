@@ -1,7 +1,11 @@
+import type { NextFunction } from 'express';
 import launchEditor from 'launch-editor';
 import { join } from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { launchEditorEndpoint, TrustedEditor } from '@hyperse/inspector-common';
+import {
+  launchEditorEndpoint,
+  TrustedEditorEnum,
+} from '@hyperse/inspector-common';
 import { createLaunchEditorMiddleware } from '../src/create-launch-editor-middleware.js';
 
 // Mock launch-editor module
@@ -10,7 +14,7 @@ vi.mock('launch-editor');
 describe('createLaunchEditorMiddleware', () => {
   let mockReq: any;
   let mockRes: any;
-  let mockNext: ReturnType<typeof vi.fn>;
+  let mockNext: NextFunction;
   let middleware: any;
 
   beforeEach(() => {
@@ -124,7 +128,7 @@ describe('createLaunchEditorMiddleware', () => {
 
   it('should use specified editor from options', () => {
     const customMiddleware = createLaunchEditorMiddleware({
-      trustedEditor: TrustedEditor.VSCode,
+      trustedEditor: TrustedEditorEnum.VSCode,
     });
 
     mockReq.url = join('/', launchEditorEndpoint, '?fileName=test.js');
@@ -133,7 +137,7 @@ describe('createLaunchEditorMiddleware', () => {
 
     expect(launchEditor).toHaveBeenCalledWith(
       expect.any(String),
-      TrustedEditor.VSCode
+      TrustedEditorEnum.VSCode
     );
   });
 });
