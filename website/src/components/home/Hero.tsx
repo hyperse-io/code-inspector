@@ -65,7 +65,7 @@ export const Hero = () => {
 
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
               <span className="block text-white">From the DOM</span>
-              <span className="animate-gradient-x block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text pb-2 text-transparent">
+              <span className="block animate-gradient-x bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text pb-2 text-transparent">
                 Straight to your IDE
               </span>
             </h1>
@@ -114,11 +114,11 @@ export const Hero = () => {
 
           <div className="w-full max-w-lg flex-1 lg:max-w-none">
             <div className="relative animate-float">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 opacity-30 blur" />
+              <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-cyan-500 to-purple-600 opacity-30 blur" />
               <div className="relative">
                 <CodeBlock code="pnpm add -D @hyperse/inspector @hyperse/inspector-middleware" />
 
-                <div className="glass-panel absolute -right-4 -bottom-4 hidden rounded-xl border border-white/10 p-4 shadow-2xl sm:-right-6 sm:-bottom-6 sm:block">
+                <div className="absolute -right-4 -bottom-4 hidden rounded-xl border border-white/10 p-4 shadow-2xl glass-panel sm:-right-6 sm:-bottom-6 sm:block">
                   <div className="mb-2 flex items-center gap-4">
                     <div className="h-2 w-2 rounded-full bg-green-400" />
                     <span className="font-mono text-xs text-gray-400">

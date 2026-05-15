@@ -72,7 +72,7 @@ export const HomeFeatures = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Everything in the monorepo
             </span>
           </h2>
@@ -86,7 +86,7 @@ export const HomeFeatures = () => {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="glass-panel group rounded-2xl border border-white/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+              className="group rounded-2xl border border-white/5 p-8 glass-panel transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
             >
               <div
                 className={`mb-6 flex h-12 w-12 items-center justify-center rounded-lg border ${feature.bg} ${feature.border} transition-transform duration-300 group-hover:scale-110`}

@@ -15,8 +15,10 @@ export const SiteFooter = () => {
               <Image
                 src={`${SITE_BASE_PATH}/logo.svg`}
                 alt="Code Inspector"
-                width={24}
+                width={16}
                 height={24}
+                className="h-6 w-auto shrink-0"
+                style={{ width: 'auto', height: 24 }}
               />
               <span className="text-xl font-bold text-white">Inspector</span>
             </div>

@@ -55,60 +55,77 @@
     ],
   },
   "settings": {
+    "files.eol": "\n",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "always",
       "source.organizeImports": "never",
     },
+    "eslint.useFlatConfig": true,
+    "eslint.format.enable": true,
     "files.associations": {
       "*.css": "tailwindcss",
     },
-    "tailwindCSS.classFunctions": ["tw", "tv", "clsx", "twMerge", "extendVariants"],
+    "tailwindCSS.classFunctions": [
+      "tw",
+      "tv",
+      "clsx",
+      "twMerge",
+      "extendVariants"
+    ],
     "tailwindCSS.classAttributes": [
       "class",
+      "classes",
       "className",
-      "classNames"
+      "classNames",
+      "baseClass",
+      "itemClasses"
     ],
     "tailwindCSS.experimental.configFile": {
-      "website/src/css/custom.css": "website/src/**",
-      "website/src/css/layout.css": "website/src/**",
-      "website/src/css/overrides.css": "website/src/**",
-      "website/src/css/code-blocks.css": "website/src/**",
+      "website/src/app/globals.css":"website/src/**",
     },
+    "tailwindCSS.experimental.classRegex": [
+      [
+        "cva\\(([^)]*)\\)",
+        "[\"'`]([^\"'`]*).*?[\"'`]"
+      ],
+      [
+        "cx\\(([^)]*)\\)",
+        "(?:'|\"|`)([^']*)(?:'|\"|`)"
+      ]
+    ],
     // Disable vscode formatting for js,jsx,ts,tsx files
     // to allow dbaeumer.vscode-eslint to format them
     "[javascript]": {
       "editor.formatOnSave": false,
     },
     "[typescript]": {
-      "editor.formatOnSave": true,
-    },
-    "[rust]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "rust-lang.rust-analyzer"
-    },
-    "[json]": {
       "editor.formatOnSave": false,
     },
-    "[jsonc]": {
-      "editor.formatOnSave": false,
-    },
-    "typescript.enablePromptUseWorkspaceTsdk": true,
     // https://github.com/Microsoft/vscode-eslint#mono-repository-setup
     "eslint.workingDirectories": [
-      "./website",
-      "./examples/example-rspack",
-      "./examples/example-webpack",
-      "./examples/example-nextjs",
-      "./crates/inspector-swc-plugin",
-      "./packages/inspector-common",
-      "./packages/inspector-babel-plugin",
-      "./packages/inspector-middleware",
-      "./packages/next-inspector",
-      "./packages/inspector",
-      "./packages/inspector-component",
+      {
+        "mode": "auto"
+      }
     ],
-    "typescript.tsdk": "root/node_modules/typescript/lib"
+    "typescript.tsdk": "root/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "[jsonc]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+      "editor.formatOnSave": false
+    },
+    "[html]": {
+      // Avoid onSave to format evolve/templates/**/*.html
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "i18n-ally.localesPaths": [
+      "messages"
+    ], // E.g. "./messages"
+    "i18n-ally.keyStyle": "nested"
   },
 }

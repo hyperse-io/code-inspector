@@ -62,9 +62,10 @@ const navbar = (
         <NextImage
           src={`${SITE_BASE_PATH}/logo.svg`}
           alt=""
-          width={22}
+          width={15}
           height={22}
-          className="rounded-sm"
+          className="h-[22px] w-auto shrink-0 rounded-sm"
+          style={{ width: 'auto', height: 22 }}
         />
         <span className="font-semibold text-white">Code Inspector</span>
       </div>

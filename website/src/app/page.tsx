@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import type { Metadata } from 'next';
 import { HomePage } from '@/components/home';
-import './home.css';
 
 export const metadata: Metadata = {
   title: 'Hyperse Code Inspector',

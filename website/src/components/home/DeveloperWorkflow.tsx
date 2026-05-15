@@ -1,14 +1,13 @@
 'use client';
 
 import type { ElementType } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { ArrowUpRight, Cpu, Gauge, Route, Zap } from 'lucide-react';
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Cell,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -78,7 +77,7 @@ const CustomTooltip = ({
   if (active && first) {
     const data = first.payload;
     return (
-      <div className="glass-panel rounded-lg border border-white/10 bg-gray-900/90 p-3 shadow-xl backdrop-blur-xl">
+      <div className="rounded-lg border border-white/10 bg-gray-900/90 p-3 shadow-xl backdrop-blur-xl glass-panel">
         <p className="mb-1 font-medium text-gray-200">{data.name}</p>
         <div className="flex items-baseline gap-1">
           <span className="text-2xl font-bold text-cyan-400">{data.value}</span>
@@ -95,95 +94,40 @@ const ChartWrapper = ({
 }: {
   data: { name: string; value: number; color: string; unit: string }[];
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isReady, setIsReady] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
+  const [dimensions, setDimensions] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
 
-  useEffect(() => {
-    const checkDimensions = () => {
-      if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect();
-        queueMicrotask(() => {
-          if (width > 0 && height > 0) {
-            setIsReady(true);
-            setHasError(false);
-          } else {
-            setIsReady(false);
-          }
+  const containerRef = useCallback((element: HTMLDivElement | null) => {
+    resizeObserverRef.current?.disconnect();
+    resizeObserverRef.current = null;
+
+    if (!element) return;
+
+    const updateDimensions = () => {
+      const { width, height } = element.getBoundingClientRect();
+      if (width > 0 && height > 0) {
+        setDimensions({
+          width: Math.floor(width),
+          height: Math.floor(height),
         });
       }
     };
 
-    checkDimensions();
-
-    let resizeObserver: ResizeObserver | null = null;
-    if (containerRef.current && typeof ResizeObserver !== 'undefined') {
-      resizeObserver = new ResizeObserver(() => {
-        checkDimensions();
-      });
-      resizeObserver.observe(containerRef.current);
-    }
-
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(checkDimensions, 100);
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-
-    return () => {
-      resizeObserver?.disconnect();
-      clearTimeout(resizeTimer);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-    };
+    updateDimensions();
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(element);
+    resizeObserverRef.current = resizeObserver;
   }, []);
-
-  useEffect(() => {
-    const errorHandler = (event: ErrorEvent) => {
-      if (
-        event.error &&
-        (String(event.error.message).includes('chart') ||
-          String(event.error.message).includes('recharts') ||
-          String(event.error.message).includes('ResponsiveContainer') ||
-          String(event.error.message).includes('width') ||
-          String(event.error.message).includes('height'))
-      ) {
-        event.preventDefault();
-        setHasError(true);
-        setIsReady(false);
-      }
-    };
-
-    window.addEventListener('error', errorHandler);
-    return () => {
-      window.removeEventListener('error', errorHandler);
-    };
-  }, []);
-
-  if (hasError || !isReady) {
-    return (
-      <div
-        ref={containerRef}
-        className="flex h-full w-full items-center justify-center"
-      >
-        <p className="text-center text-sm text-gray-400">Chart loading…</p>
-      </div>
-    );
-  }
 
   return (
     <div ref={containerRef} className="h-full min-h-0 w-full min-w-0">
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        minWidth={0}
-        minHeight={0}
-        debounce={150}
-      >
+      {dimensions ? (
         <BarChart
+          width={dimensions.width}
+          height={dimensions.height}
           data={data}
           layout="vertical"
           margin={{ top: 0, right: 20, left: 0, bottom: 0 }}
@@ -211,7 +155,11 @@ const ChartWrapper = ({
             ))}
           </Bar>
         </BarChart>
-      </ResponsiveContainer>
+      ) : (
+        <div className="flex h-full w-full items-center justify-center">
+          <p className="text-center text-sm text-gray-400">Chart loading…</p>
+        </div>
+      )}
     </div>
   );
 };
@@ -255,7 +203,7 @@ export const DeveloperWorkflow = () => {
                     onClick={() => setActiveMetric(key)}
                     className={`group flex items-center gap-4 rounded-lg px-4 py-4 text-left transition-all duration-300 ${
                       isActive
-                        ? 'border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 to-blue-500/10 shadow-lg'
+                        ? 'border border-cyan-500/30 bg-linear-to-r from-cyan-500/20 to-blue-500/10 shadow-lg'
                         : 'border border-transparent hover:bg-white/5'
                     }`}
                   >
@@ -283,7 +231,7 @@ export const DeveloperWorkflow = () => {
               })}
             </div>
 
-            <div className="glass-panel mt-auto rounded-xl border border-white/10 p-6">
+            <div className="mt-auto rounded-xl border border-white/10 p-6 glass-panel">
               <h4 className="mb-3 flex items-center gap-2 font-semibold text-white">
                 <Cpu className="h-4 w-4 text-cyan-400" />
                 Why it feels instant
@@ -315,7 +263,7 @@ export const DeveloperWorkflow = () => {
                 </div>
               </div>
 
-              <div className="min-h-0 flex-grow">
+              <div className="min-h-0 grow">
                 <ChartWrapper data={currentMetric.data} />
               </div>
 

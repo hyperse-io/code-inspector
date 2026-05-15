@@ -9,14 +9,14 @@ import { SiteFooter } from './SiteFooter';
 export const HomePage = () => {
   const route = useRouter();
   return (
-    <div className="grid-bg relative flex min-h-screen flex-col selection:bg-cyan-500/30 selection:text-cyan-200">
-      <main className="flex-grow">
+    <div className="relative flex min-h-screen flex-col grid-bg selection:bg-cyan-500/30 selection:text-cyan-200">
+      <main className="grow">
         <Hero />
         <DeveloperWorkflow />
         <HomeFeatures />
 
         <section className="relative overflow-hidden py-20">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/10" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent to-cyan-900/10" />
           <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
               Ready to wire your UI to the editor?
