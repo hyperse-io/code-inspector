@@ -32,9 +32,7 @@
   "scripts": {
     "build": "rimraf ./dist && mkdir ./dist && cargo build --release -p inspector_swc_plugin --target wasm32-wasip1 && cp ../../target/wasm32-wasip1/release/inspector_swc_plugin.wasm ./dist/inspector_swc_plugin.wasm",
     "build:debug": "rimraf ./dist && mkdir ./dist && cargo build -p inspector_swc_plugin --target wasm32-wasip1 && cp ../../target/wasm32-wasip1/debug/inspector_swc_plugin.wasm ./dist/inspector_swc_plugin.wasm",
-    "?build-release": "When https://github.com/atlassian/changesets/issues/432 has a solution we can remove this trick",
-    "build-release": "rimraf ./_release && yarn pack && mkdir ./_release && tar zxvf ./package.tgz --directory ./_release && rm ./package.tgz",
-    "clean": "rimraf --no-glob ./dist ./_release ./coverage ./tsconfig.tsbuildinfo",
+    "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
     "lint": "eslint .",
     "test": "run-s test-unit",
     "test-unit": "yarn build && vitest run",
@@ -60,7 +58,6 @@
     "node": ">=18.0.0"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "_release/package"
+    "access": "public"
   }
 }
