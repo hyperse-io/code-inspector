@@ -42,6 +42,7 @@ env:
 
 jobs:
   test:
+    if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
