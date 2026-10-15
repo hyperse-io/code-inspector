@@ -1,4 +1,4 @@
-import type { TransformOptions } from '@babel/core';
+import type { InputOptions } from '@babel/core';
 
 type EvolvePresetPresets = {
   /**
@@ -6,13 +6,13 @@ type EvolvePresetPresets = {
    *
    * Default: `[]`
    */
-  plugins?: TransformOptions['plugins'];
+  plugins?: InputOptions['plugins'];
   /**
    * List of presets (a set of plugins) to load and use
    *
    * Default: `[]`
    */
-  presets?: TransformOptions['presets'];
+  presets?: InputOptions['presets'];
 };
 
 export const reactBabelPreset = (
@@ -23,18 +23,15 @@ export const reactBabelPreset = (
       [
         '@babel/preset-env',
         {
-          // https://babeljs.io/docs/babel-preset-env#loose
-          // Set the corejs version we are using to avoid warnings in console
-          corejs: 3,
-          // Allow importing core-js in entrypoint and use browserlist to select polyfills
-          useBuiltIns: 'entry',
-          // Set the corejs version we are using to avoid warnings in console
+          // Babel 8 removed `corejs` / `useBuiltIns`; polyfill injection is now
+          // handled by `babel-plugin-polyfill-corejs3`. These tests only assert
+          // on JSX source attribution, so no polyfills are needed here.
+          //
+          // Exclude transforms that make all code slower, and the ones handled
+          // by `FastAsync` in the application runtime.
           exclude: [
-            // Exclude transforms that make all code slower
             'transform-typeof-symbol',
-            // Exclude transforms use `FastAsync`
             'transform-regenerator',
-            // Exclude transforms use `FastAsync`
             'transform-async-to-generator',
           ],
           targets: {
@@ -45,8 +42,8 @@ export const reactBabelPreset = (
       [
         '@babel/preset-typescript',
         {
-          isTSX: false,
-          allExtensions: false,
+          // Babel 8 removed `.isTSX` / `.allExtensions`; TSX is now detected
+          // from the file extension.
         },
       ],
       [

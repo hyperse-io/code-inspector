@@ -57,9 +57,13 @@ export const OverlayTipRoot = styled.div<{ display?: 'block' | 'none' }>`
   user-select: none;
   overflow: hidden;
 
-  ${isSafari
-    ? `filter: drop-shadow(0 0 1px #eee9);`
-    : `filter: drop-shadow(0 0 1px #eee9) drop-shadow(2px 10px 12px var(--color-shadow-1)) drop-shadow(-3px 3px 6px var(--color-shadow-2)) drop-shadow(0 -6px 8px var(--color-shadow-1));`}
+  ${
+    isSafari
+      ? `filter: drop-shadow(0 0 1px #eee9);`
+      : `
+      filter: drop-shadow(0 0 1px #eee9) drop-shadow(2px 10px 12px var(--color-shadow-1)) drop-shadow(-3px 3px 6px var(--color-shadow-2)) drop-shadow(0 -6px 8px var(--color-shadow-1));
+    `
+  }
 `;
 
 export const OverlayInfoRow = styled.div`

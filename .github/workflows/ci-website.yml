@@ -9,6 +9,7 @@ on:
     # Only consider those paths to trigger the action
     paths:
       - 'website/**'
+      - 'packages/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'
@@ -28,6 +29,7 @@ on:
     # Only consider those paths to trigger the action
     paths:
       - 'website/**'
+      - 'packages/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'

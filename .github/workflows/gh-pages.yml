@@ -2,11 +2,13 @@ name: github pages
 
 on:
   push:
-    branches: 
-      - main  # Set a branch name to trigger deployment
+    branches:
+      - main # Set a branch name to trigger deployment
     paths:
       - '.github/workflows/gh-pages.yml'
       - 'website/**'
+      - 'packages/**'
+      - 'crates/**'
   pull_request:
 
 jobs:
@@ -17,9 +19,6 @@ jobs:
       contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-    defaults:
-      run:
-        working-directory: website
     strategy:
       matrix:
         node-version: [24.x]
@@ -31,16 +30,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
           package-manager-cache: false
 
-      - name: 📥 Install Dependencies
-        run: yarn --frozen-lockfile
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
 
-      - name: Unit tests
-        run: |
-          yarn test
+      # `yarn g:build-local` needs Rust: `crates/inspector-swc-plugin` is in the
+      # build graph (the rspack/webpack examples consume its wasm artifact), and
+      # `@hyperse/next-inspector` depends on it. Without this toolchain the build
+      # fails with `command not found: cargo` / `failed to get the node_modules path`.
+      - name: 📥 Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Build
+      - name: 📥 Add wasm32-wasip1 target
+        run: rustup target add wasm32-wasip1
+
+      - name: Build packages
         run: |
-          yarn build:ghpage
+          yarn g:build-local
+
+      - name: Build website
+        run: |
+          yarn g:build-website
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
@@ -48,3 +57,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/out
+          # The website is built with `basePath: '/code-inspector'`, so every
+          # emitted asset is referenced as `/code-inspector/_next/...`. The site
+          # therefore has to be published into a `code-inspector/` subdirectory
+          # on the Pages branch to land at
+          # https://hyperse-io.github.io/code-inspector/ instead of being
+          # flattened into the branch root, which would 404 every asset.
+          destination_dir: code-inspector

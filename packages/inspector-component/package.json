@@ -42,31 +42,32 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@flatjs/forge": "^2.3.10",
-    "@flatjs/forge-plugin-styling": "^2.2.5",
-    "@hyperse/eslint-config-hyperse": "^1.7.2",
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
-    "@vitest/coverage-istanbul": "^4.1.5",
-    "@vitest/ui": "^4.1.5",
-    "eslint": "^10.2.1",
-    "jsdom": "^29.0.2",
+    "@flatjs/forge": "^2.4.0",
+    "@flatjs/forge-plugin-styling": "^2.3.0",
+    "@hyperse/eslint-config-hyperse": "^1.7.5",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@vitest/coverage-istanbul": "^5.0.4",
+    "@vitest/ui": "^5.0.4",
+    "eslint": "^10.12.0",
+    "jsdom": "^30.1.3",
     "npm-run-all": "^4.1.5",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "rimraf": "^6.1.3",
-    "tsup": "^8.5.1",
+    "tsup": "^9.0.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.5"
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
   },
   "dependencies": {
-    "@floating-ui/core": "^1.7.5",
+    "@floating-ui/core": "^1.8.0",
     "@hyperse/inspector-common": "workspace:*",
-    "styled-components": "^6.4.1"
+    "styled-components": "^6.6.0"
   },
   "peerDependencies": {
-    "react": ">=19.2.5",
-    "react-dom": ">=19.2.5"
+    "react": ">=19.3.1",
+    "react-dom": ">=19.3.1"
   },
   "peerDependenciesMeta": {
     "react": {

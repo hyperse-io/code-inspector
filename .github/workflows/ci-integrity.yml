@@ -6,10 +6,14 @@ on:
       - main
       - major
       - minor
+    # Only consider those paths to trigger the action
     paths:
+      - 'packages/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/**'
 
   pull_request:
@@ -21,10 +25,14 @@ on:
       - opened
       - synchronize
       - reopened
+    # Only consider those paths to trigger the action
     paths:
+      - 'packages/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
       - '.github/**'
 
 jobs:
@@ -53,6 +61,22 @@ jobs:
       - name: Check for yarn constraints.pro
         run: |
           yarn constraints
+
+      - name: Linter
+        run: |
+          yarn g:lint
+
+      # `yarn g:build-local` is deliberately not run in this job.
+      #
+      # Unlike the wizard monorepo, the build graph here reaches
+      # `crates/inspector-swc-plugin`: `@hyperse/next-inspector` and both the
+      # rspack/webpack examples depend on it, and the examples consume its wasm
+      # artifact via `builtin:swc-loader`. Building therefore needs a Rust
+      # toolchain plus the wasm32-wasip1 target, which this integrity job does
+      # not set up.
+      #
+      # That build is covered by `CI-inspector-swc-plugin` (which installs Rust)
+      # and by `gh-pages`, which now also sets up Rust before building.
 
       # https://github.com/sverweij/dependency-cruiser
       # - name: Check monorepo dependency graph

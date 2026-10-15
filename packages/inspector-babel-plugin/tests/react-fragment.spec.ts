@@ -32,17 +32,16 @@ describe(`tests preset babel react fragment, inject inspector source`, () => {
     );
 
     // more accurate check, ensure is React.Fragment attribute
-    const fragmentDefaultPattern = new RegExp(
-      `_react\\.default\\.Fragment,\\s*{[^}]*"${TRACE_SOURCE}"[^}]*}`,
-      's'
-    );
-    expect(compiledCode).toMatch(fragmentDefaultPattern);
-
-    const fragmentPattern = new RegExp(
-      `_react\\.Fragment,\\s*{[^}]*"${TRACE_SOURCE}"[^}]*}`,
-      's'
-    );
-    expect(compiledCode).toMatch(fragmentPattern);
+    //
+    // Babel 8 compiles JSX with the automatic runtime, so the callee is the
+    // `jsxDEV` helper and the element type is the first argument:
+    //   _jsxDEV(React.Fragment, { ... }, ...)
+    // Fragment elements must stay free of the trace attribute, so their props
+    // object must hold no trace key at all. Whitespace is stripped first so
+    // these checks do not depend on formatting.
+    const compactCode = compiledCode?.replace(/[\s\n]+/g, '') ?? '';
+    expect(compactCode).toContain('_jsxDEV(React.Fragment,{children:');
+    expect(compactCode).toContain('_jsxDEV(Fragment,{children:');
 
     // check div element location information
     expect(compiledCode?.replace(/[\s\n]+/g, '')).toContain(

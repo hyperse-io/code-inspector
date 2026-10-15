@@ -15,6 +15,19 @@ import {
 } from './helper-fiber.js';
 
 /**
+ * React attaches `_debugSource` to fibers in development builds, but the
+ * property is intentionally absent from `@types/react-reconciler` (it was
+ * dropped from the published `Fiber` interface in `0.34`).
+ *
+ * It is read off the fiber at runtime, so it is modelled here explicitly
+ * rather than casting at each access site.
+ */
+type FiberWithDebugSource = Fiber & {
+  _debugSource?: Source & { columnNumber?: number };
+  _debugOwner?: FiberWithDebugSource | null;
+};
+
+/**
  * react fiber property `_debugSource` created by `@babel/plugin-transform-react-jsx-source`
  *     https://github.com/babel/babel/blob/v7.16.4/packages/babel-plugin-transform-react-jsx-source/src/index.js
  *
@@ -34,11 +47,11 @@ export const getCodeInfoFromDebugSource = (
   /**
    * only find forward with 2 level _debugOwner, otherwise to normal `fiber.return`
    */
-  const debugSource = (fiber._debugSource ??
-    fiber._debugOwner?._debugSource ??
-    fiber._debugOwner?._debugOwner?._debugSource) as Source & {
-    columnNumber?: number;
-  };
+  const debugFiber = fiber as FiberWithDebugSource;
+  const debugSource =
+    debugFiber._debugSource ??
+    debugFiber._debugOwner?._debugSource ??
+    debugFiber._debugOwner?._debugOwner?._debugSource;
 
   if (!debugSource) return undefined;
 

@@ -3,7 +3,7 @@ import { types as t } from '@babel/core';
 import { declare } from '@babel/helper-plugin-utils';
 import { TRACE_SOURCE } from '@hyperse/inspector-common';
 import { PLUGIN_NAME } from './constant.js';
-import type { PluginState } from './types/type-plugin.js';
+import type { PluginOptions, PluginState } from './types/type-plugin.js';
 
 const isSourceAttr = (attr: t.Node) =>
   t.isJSXAttribute(attr) && attr.name.name === TRACE_SOURCE;
@@ -49,7 +49,7 @@ const isReactFragment = (node: t.JSXOpeningElement): boolean => {
  * var __jsxFileName = 'project/file.js';
  * <sometag data-hps-source="project/file.js:10:1:sometag"/>
  */
-export default declare<PluginState>((_, options) => {
+export default declare<PluginState, PluginOptions>((_, options) => {
   const { projectCwd } = options;
 
   return {

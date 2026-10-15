@@ -116,8 +116,7 @@ export class DOMInspectAgent implements InspectAgent<DOMElement> {
     pointer: Pointer
   ): DOMElement | undefined | null => {
     return document.elementFromPoint(pointer.clientX, pointer.clientY) as
-      | DOMElement
-      | undefined;
+      DOMElement | undefined;
   };
 
   public getTopElementsFromPointer = (pointer: Pointer): DOMElement[] => {

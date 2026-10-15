@@ -1,1 +1,1 @@
-export * from './type-plugin.js';
+export type { PluginOptions, PluginState } from './type-plugin.js';
