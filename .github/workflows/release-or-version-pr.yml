@@ -75,8 +75,9 @@ jobs:
           # `HOME` is overridden above, but rustup resolves its toolchains and
           # settings relative to `RUSTUP_HOME` (defaulting to `$HOME/.rustup`).
           # Without pinning it, `cargo` installed by dtolnay/rust-toolchain into
-          # `/home/runner/.rustup` becomes invisible here, and the rebuild that
-          # `yarn g:release` triggers fails with:
+          # `/home/runner/.rustup` becomes invisible here. `g:release` still
+          # recompiles the swc crate (it is in the workspace build graph), which
+          # then failed with:
           #   rustup could not choose a version of cargo to run, because one
           #   wasn't specified explicitly, and no default is configured
           RUSTUP_HOME: /home/runner/.rustup
