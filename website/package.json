@@ -24,7 +24,8 @@
     "lint": "eslint .",
     "start": "next start -p 3000 -H 0.0.0.0",
     "test": "vitest run",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+    "generate:source": "fumadocs-mdx",
+    "typecheck": "yarn generate:source && tsc --project ./tsconfig.json --noEmit"
   },
   "config": {
     "commitizen": {
