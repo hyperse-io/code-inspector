@@ -34,6 +34,13 @@ jobs:
           rustc --version
           cargo --version
 
+      - name: 📥 Pin default Rust toolchain
+        # `dtolnay/rust-toolchain` installs the toolchain but does not always
+        # register it as the default. `yarn g:release` (via `g:build`) compiles
+        # `crates/inspector-swc-plugin` with cargo, so a default must exist or
+        # the publish step fails with "no default is configured".
+        run: rustup default stable
+
       - name: Use Node.js 24.x
         uses: actions/setup-node@v5
         with:
@@ -65,6 +72,15 @@ jobs:
         env:
           # See https://github.com/changesets/action/issues/147
           HOME: ${{ github.workspace }}
+          # `HOME` is overridden above, but rustup resolves its toolchains and
+          # settings relative to `RUSTUP_HOME` (defaulting to `$HOME/.rustup`).
+          # Without pinning it, `cargo` installed by dtolnay/rust-toolchain into
+          # `/home/runner/.rustup` becomes invisible here, and the rebuild that
+          # `yarn g:release` triggers fails with:
+          #   rustup could not choose a version of cargo to run, because one
+          #   wasn't specified explicitly, and no default is configured
+          RUSTUP_HOME: /home/runner/.rustup
+          CARGO_HOME: /home/runner/.cargo
           # Allows to download / query / comment packages
           # Allows to publish packages
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
