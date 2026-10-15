@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://hyperse-io.github.io/code-inspector</loc><lastmod>2026-10-15T12:42:03.785Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/about</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/api/search</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/about</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration/babel-plugin</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration/inspector-component</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration/middleware</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration/next-plugin</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/configuration/swc-plugin</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/getting-started</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/how-it-works</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/integrations</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/integrations/nextjs</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/integrations/rspack</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/integrations/vite</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/integrations/webpack</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+<url><loc>https://hyperse-io.github.io/code-inspector/docs/troubleshooting</loc><lastmod>2026-10-15T12:42:03.786Z</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+</urlset>
