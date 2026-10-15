@@ -57,10 +57,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/out
-          # The website is built with `basePath: '/code-inspector'`, so every
-          # emitted asset is referenced as `/code-inspector/_next/...`. The site
-          # therefore has to be published into a `code-inspector/` subdirectory
-          # on the Pages branch to land at
-          # https://hyperse-io.github.io/code-inspector/ instead of being
-          # flattened into the branch root, which would 404 every asset.
-          destination_dir: code-inspector
