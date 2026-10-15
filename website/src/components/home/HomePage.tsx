@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { SITE_BASE_PATH } from '@/config/site';
 import { DeveloperWorkflow } from './DeveloperWorkflow';
 import { Hero } from './Hero';
 import { HomeFeatures } from './HomeFeatures';
@@ -30,9 +29,7 @@ export const HomePage = () => {
               <button
                 type="button"
                 className="cursor-pointer rounded-lg bg-white px-8 py-4 font-bold text-black transition-colors hover:bg-gray-200"
-                onClick={() =>
-                  route.push(`${SITE_BASE_PATH}/docs/getting-started`)
-                }
+                onClick={() => route.push('/docs/getting-started')}
               >
                 Get started now
               </button>

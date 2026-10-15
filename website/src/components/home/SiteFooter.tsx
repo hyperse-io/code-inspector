@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { SITE_BASE_PATH } from '@/config/site';
 import { Icon } from '@iconify/react';
 
@@ -92,20 +93,20 @@ export const SiteFooter = () => {
             <h4 className="mb-4 font-semibold text-white">Docs</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a
-                  href={`${SITE_BASE_PATH}/docs/getting-started`}
+                <Link
+                  href="/docs/getting-started"
                   className="transition-colors hover:text-cyan-400"
                 >
                   Getting started
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href={`${SITE_BASE_PATH}/about`}
+                <Link
+                  href="/about"
                   className="transition-colors hover:text-cyan-400"
                 >
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
