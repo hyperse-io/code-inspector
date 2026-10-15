@@ -93,7 +93,7 @@ export const SiteFooter = () => {
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <a
-                  href={`${SITE_BASE_PATH}/guide/getting-started`}
+                  href={`${SITE_BASE_PATH}/docs/getting-started`}
                   className="transition-colors hover:text-cyan-400"
                 >
                   Getting started

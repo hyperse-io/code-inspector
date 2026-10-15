@@ -1,15 +1,21 @@
 import type { FC } from 'react';
 import type { Metadata } from 'next';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { baseOptions } from '@/app/layout.config';
 import { HomePage } from '@/components/home';
+import { SITE_DESCRIPTION, SITE_NAME } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Hyperse Code Inspector',
-  description:
-    '@hyperse/inspector connects your browser to your IDE—hotkey, click, open source at the right line and column.',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
 };
 
 const IndexPage: FC = () => {
-  return <HomePage />;
+  return (
+    <HomeLayout {...baseOptions}>
+      <HomePage />
+    </HomeLayout>
+  );
 };
 
 export default IndexPage;

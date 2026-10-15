@@ -3,6 +3,7 @@
 import type { ButtonHTMLAttributes } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Boxes, MousePointerClick, Zap } from 'lucide-react';
+import { SITE_BASE_PATH } from '@/config/site';
 import { CodeBlock } from './CodeBlock';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -81,7 +82,9 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="group w-full sm:w-auto"
-                onClick={() => route.push('/guide/getting-started')}
+                onClick={() =>
+                  route.push(`${SITE_BASE_PATH}/docs/getting-started`)
+                }
               >
                 Get started
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -90,7 +93,7 @@ export const Hero = () => {
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"
-                onClick={() => route.push('/guide/introduction')}
+                onClick={() => route.push(`${SITE_BASE_PATH}/docs`)}
               >
                 Read documentation
               </Button>

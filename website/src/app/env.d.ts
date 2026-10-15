@@ -7,13 +7,8 @@ declare module '*.svg?svgr' {
 
 declare module '*.mdx' {
   import type { FC } from 'react';
-  import type { MDXComponents } from 'nextra/mdx-components';
   const ReactComponent: FC<{
-    components?: MDXComponents;
+    components?: Record<string, unknown>;
   }>;
   export default ReactComponent;
-}
-
-declare module 'next-mdx-import-source-file' {
-  export { useMDXComponents } from 'nextra/mdx-components';
 }

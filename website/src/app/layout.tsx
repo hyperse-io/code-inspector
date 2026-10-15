@@ -1,15 +1,11 @@
 import type { FC, ReactNode } from 'react';
 import type { Metadata } from 'next';
-import NextImage from 'next/image';
-import { Banner, Head } from 'nextra/components';
-import { getPageMap } from 'nextra/page-map';
-import { Footer, Layout, Link, Navbar } from 'nextra-theme-docs';
-import { SITE_BASE_PATH } from '@/config/site';
-import './globals.css';
+import { RootProvider } from 'fumadocs-ui/provider/next';
+import { SITE_BASE_PATH, SITE_DESCRIPTION, SITE_NAME } from '@/config/site';
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
-  description:
-    '@hyperse/inspector: jump from React UI in the browser to your local editor with one shortcut.',
+  description: SITE_DESCRIPTION,
   metadataBase: new URL('https://hyperse-io.github.io'),
   keywords: [
     'Hyperse',
@@ -22,96 +18,65 @@ export const metadata: Metadata = {
     'Webpack',
     'Rspack',
   ],
-  generator: 'Next.js',
-  applicationName: 'Hyperse Code Inspector',
+  generator: 'Hyperse',
+  applicationName: SITE_NAME,
   appleWebApp: {
     title: 'Code Inspector',
   },
   title: {
-    default: 'Hyperse Code Inspector',
+    default: SITE_NAME,
     template: '%s | Code Inspector',
   },
   openGraph: {
     url: './',
-    siteName: 'Hyperse Code Inspector',
+    siteName: SITE_NAME,
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    site: 'https://www.hyperse.net/',
   },
   alternates: {
     canonical: './',
   },
 };
 
-const banner = (
-  <Banner dismissible={false}>
-    📌 Documentation for{' '}
-    <Link
-      href="https://www.npmjs.com/package/@hyperse/inspector"
-      className="text-current!"
-    >
-      @hyperse/inspector
-    </Link>{' '}
-    and related packages.
-  </Banner>
-);
-
-const navbar = (
-  <Navbar
-    logo={
-      <div className="flex items-center gap-2">
-        <NextImage
-          src={`${SITE_BASE_PATH}/logo.svg`}
-          alt=""
-          width={15}
-          height={22}
-          className="h-[22px] w-auto shrink-0 rounded-sm"
-          style={{ width: 'auto', height: 22 }}
-        />
-        <span className="font-semibold text-white">Code Inspector</span>
-      </div>
-    }
-    projectLink="https://github.com/hyperse-io/code-inspector"
-  />
-);
-
-const footer = (
-  <Footer className="flex-col items-center md:items-start">
-    <p className="text-sm text-gray-500">
-      Part of the{' '}
-      <Link href="https://github.com/hyperse-io" className="text-current!">
-        Hyperse
-      </Link>{' '}
-      toolchain.
-    </p>
-    <p className="mt-4 text-xs text-gray-600">
-      © {new Date().getFullYear()} Hyperse Inc.
-    </p>
-  </Footer>
-);
-
 const RootLayout: FC<{
   children: ReactNode;
-}> = async ({ children }) => {
-  const pageMap = await getPageMap();
-
+}> = ({ children }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head />
-      <body>
-        <Layout
-          banner={banner}
-          navbar={navbar}
-          pageMap={pageMap}
-          docsRepositoryBase="https://github.com/hyperse-io/code-inspector/tree/main/website"
-          editLink="Edit this page on GitHub"
-          sidebar={{ defaultMenuCollapseLevel: 1 }}
-          footer={footer}
-          nextThemes={{
-            forcedTheme: 'dark',
+      <head>
+        <link rel="icon" href={`${SITE_BASE_PATH}/favicon.ico`} sizes="any" />
+        <link
+          rel="icon"
+          href={`${SITE_BASE_PATH}/logo.svg`}
+          type="image/svg+xml"
+        />
+        <link
+          rel="apple-touch-icon"
+          href={`${SITE_BASE_PATH}/apple-touch-icon.png`}
+        />
+      </head>
+      <body className="flex min-h-screen flex-col">
+        {/*
+          Fumadocs' static search client builds its URL as
+          `join(BASE_PATH, api)`, and `BASE_PATH` comes from Vite's
+          `import.meta.env.BASE_URL` — which does not exist in Next.js, so it is
+          always `'/'`. Next.js' `basePath` is therefore NOT applied
+          automatically, and omitting it makes the client request
+          `/api/search` (404) instead of `${basePath}/api/search`.
+        */}
+        <RootProvider
+          search={{
+            options: {
+              type: 'static',
+              api: `${SITE_BASE_PATH}/api/search`,
+            },
           }}
         >
           {children}
-        </Layout>
+        </RootProvider>
       </body>
     </html>
   );

@@ -19,7 +19,21 @@
     "incremental": true,
     "types": ["vitest/globals"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@hyperse/inspector": ["../packages/inspector/dist/index.d.ts"],
+      "@hyperse/inspector-common": [
+        "../packages/inspector-common/dist/index.d.ts"
+      ],
+      "@hyperse/inspector-middleware": [
+        "../packages/inspector-middleware/dist/index.d.ts"
+      ],
+      "@hyperse/inspector-babel-plugin": [
+        "../packages/inspector-babel-plugin/dist/index.d.ts"
+      ],
+      "@hyperse/inspector-component": [
+        "../packages/inspector-component/dist/index.d.ts"
+      ],
+      "@hyperse/next-inspector": ["../packages/next-inspector/dist/index.d.ts"]
     },
     "plugins": [
       {
@@ -37,7 +51,8 @@
     "**/*.tsx",
     "**/*.mdx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".source/**/*.ts"
   ],
   "exclude": ["node_modules", ".next"]
 }

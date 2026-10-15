@@ -1,0 +1,11 @@
+{
+  "title": "Configuration",
+  "pages": [
+    "index",
+    "next-plugin",
+    "middleware",
+    "babel-plugin",
+    "swc-plugin",
+    "inspector-component"
+  ]
+}

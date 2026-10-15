@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { SITE_BASE_PATH } from '@/config/site';
 import { DeveloperWorkflow } from './DeveloperWorkflow';
 import { Hero } from './Hero';
 import { HomeFeatures } from './HomeFeatures';
@@ -9,8 +10,8 @@ import { SiteFooter } from './SiteFooter';
 export const HomePage = () => {
   const route = useRouter();
   return (
-    <div className="relative flex min-h-screen flex-col grid-bg selection:bg-cyan-500/30 selection:text-cyan-200">
-      <main className="grow">
+    <div className="relative flex grow flex-col grid-bg selection:bg-cyan-500/30 selection:text-cyan-200">
+      <div className="grow">
         <Hero />
         <DeveloperWorkflow />
         <HomeFeatures />
@@ -29,7 +30,9 @@ export const HomePage = () => {
               <button
                 type="button"
                 className="cursor-pointer rounded-lg bg-white px-8 py-4 font-bold text-black transition-colors hover:bg-gray-200"
-                onClick={() => route.push('/guide/getting-started')}
+                onClick={() =>
+                  route.push(`${SITE_BASE_PATH}/docs/getting-started`)
+                }
               >
                 Get started now
               </button>
@@ -48,7 +51,7 @@ export const HomePage = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
       <SiteFooter />
     </div>
   );

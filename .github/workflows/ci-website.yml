@@ -1,0 +1,74 @@
+name: CI-website
+
+on:
+  push:
+    branches:
+      - main
+      - major
+      - minor
+    # Only consider those paths to trigger the action
+    paths:
+      - 'website/**'
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/**'
+
+  pull_request:
+    branches:
+      - main
+      - major
+      - minor
+    types:
+      - opened
+      - synchronize
+      - reopened
+    # Only consider those paths to trigger the action
+    paths:
+      - 'website/**'
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - 'tsconfig.base.json'
+      - '.prettier*'
+      - '.github/**'
+
+jobs:
+  test:
+    if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
+    strategy:
+      matrix:
+        node-version: [24.x]
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+
+      - name: Linter
+        run: |
+          yarn lint
+
+      - name: Typecheck
+        run: |
+          yarn typecheck
+
+      - name: Unit tests
+        run: |
+          yarn test --passWithNoTests
+
+      - name: Build (static export)
+        run: |
+          yarn build:ghpage
