@@ -2,4 +2,4 @@
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"oc","k":"integrations/webpack","s":[]},"h":64,"c":"$Q3"}]]
 1:[["children",{"s":"docs","h":32,"c":"$Q2"}]]
-0:{"b":"UMZwgHE8xnxYP9lVOoatH","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"9a9_iV32cTJx1D6CibRBS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
